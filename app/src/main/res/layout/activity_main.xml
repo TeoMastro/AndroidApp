@@ -8,10 +8,12 @@
 
     <Button
         android:id="@+id/newOrder"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="Νεα Παραγγελία"
+        android:layout_marginTop="168dp"
+        android:text="Νεα Παραγγελια"
+        android:textColor="#FFFFFF"
+        android:background="#2D3142"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,21 +21,25 @@
 
     <Button
         android:id="@+id/newPelatis"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
-        android:text="Προσθήκη Πελάτη"
+        android:text="Προσθηκη Πελατη"
         app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="#FFFFFF"
+        android:background="#2D3142"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newOrder" />
 
     <Button
         android:id="@+id/ordersToday"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
-        android:text="Σημερινές Παραγγελίες"
+        android:text="Σημερινες Παραγγελιες"
+        android:textColor="#FFFFFF"
+        android:background="#2D3142"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newPelatis" />
@@ -44,19 +50,35 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:textSize="25dp"
+        android:textColor="#0A0908"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/allOrders"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
-        android:text="Ιστορικό Παραγγελιών"
+        android:text="Ιστορικο Παραγγελιων"
+        android:textColor="#FFFFFF"
+        android:background="#2D3142"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ordersToday" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:textColor="#0A0908"
+        android:text="ΕΠΙΛΕΞΤΕ ΕΝΑ ΑΠΟ ΤΑ ΠΑΡΑΚΑΤΩ"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date" />
 
 </android.support.constraint.ConstraintLayout>

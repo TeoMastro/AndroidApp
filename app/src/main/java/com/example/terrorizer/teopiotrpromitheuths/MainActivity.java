@@ -1,6 +1,7 @@
 package com.example.terrorizer.teopiotrpromitheuths;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,11 +15,12 @@ public class MainActivity extends AppCompatActivity {
 
     Button newOrder;
     Button pelatis;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         newOrder = (Button)findViewById(R.id.newOrder);  //edw kanw to button na fortwnei allo activity
         newOrder.setOnClickListener(new View.OnClickListener() {
@@ -52,4 +54,6 @@ public class MainActivity extends AppCompatActivity {
         Intent pelatis = new Intent(MainActivity.this , Pelatis.class);
         startActivity(pelatis);
     }
+
+
 }

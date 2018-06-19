@@ -8,7 +8,7 @@
 
     <EditText
         android:id="@+id/getName"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
@@ -27,13 +27,14 @@
         android:layout_marginTop="36dp"
         android:text="Προσθήκη Νέου Πελάτη"
         android:textSize="25dp"
+        android:textColor="#0A0908"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/getPhone"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
@@ -47,7 +48,7 @@
 
     <EditText
         android:id="@+id/getAdress"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
@@ -61,10 +62,12 @@
 
     <Button
         android:id="@+id/prosthikiPelath"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
+        android:background="#2D3142"
         android:text="Προσθήκη Πελάτη"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/getAdress" />
