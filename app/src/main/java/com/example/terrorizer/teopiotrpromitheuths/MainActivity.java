@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button newOrder;
     Button pelatis;
+    Button simerinesParaggelies;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        simerinesParaggelies= (Button) findViewById(R.id.ordersToday);
+        simerinesParaggelies.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSimerinesParaggelies();
+            }
+        });
+
         Calendar calendar = Calendar.getInstance();  //gia thn hmerominia
         String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
 
@@ -55,5 +64,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(pelatis);
     }
 
+    public void openSimerinesParaggelies(){  //kaleitai mesw toy onClickListener
+        Intent pelatis = new Intent(MainActivity.this , simerinesParaggelies.class);
+        startActivity(pelatis);
+    }
 
 }
