@@ -4,17 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:paddingBottom="16dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    android:paddingBottom="16dp"
-    tools:context=".MainActivity"
-    android:fillViewport="true">
+    android:background="@color/ic_launcher_background"
+
+    android:backgroundTintMode="multiply"
+    tools:context=".MainActivity">
 
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="fill_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/background"
+            tools:layout_editor_absoluteX="20dp"
+            tools:ignore="MissingConstraints" />
 
         <Button
             android:id="@+id/newOrder"
@@ -26,7 +40,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:background="#2D3142"
             android:text="Νεα Παραγγελια"
             android:textColor="#FFFFFF"
@@ -44,7 +58,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:background="#2D3142"
             android:text="Προσθηκη Πελατη"
             android:textColor="#FFFFFF"
@@ -62,7 +76,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:background="#2D3142"
             android:text="Σημερινες Παραγγελιες"
             android:textColor="#FFFFFF"
@@ -80,7 +94,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:background="#2D3142"
             android:text="Ιστορικο Παραγγελιων"
             android:textColor="#FFFFFF"
@@ -98,7 +112,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="68dp"
+            android:layout_marginTop="12dp"
             android:foregroundGravity="center"
             android:gravity="center"
             android:text="ΕΠΙΛΕΞΤΕ ΕΝΑ ΑΠΟ ΤΑ ΠΑΡΑΚΑΤΩ"
@@ -106,7 +120,7 @@
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/date" />
+            app:layout_constraintTop_toBottomOf="@+id/calendarView2" />
 
         <TextView
             android:id="@+id/date"
@@ -116,11 +130,27 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:text=""
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <CalendarView
+            android:id="@+id/calendarView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="128dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
