@@ -4,57 +4,90 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".simerinesParaggelies">
+    tools:context=".simerinesParaggelies"
+    android:background="@color/ic_launcher_background">
 
     <TableLayout
-        android:id="@+id/tableLayout2"
+        android:id="@+id/table"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="124dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="80dp"
-        android:textColor="#0A0908"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorAccent"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:textColor="#FFFFFF"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textView6">
 
         <TableRow>
 
             <TextView
-                android:layout_weight=".33"
                 android:layout_column="1"
+                android:layout_weight=".33"
                 android:padding="3dip"
+                android:gravity="center_horizontal"
                 android:text="Όνομα" />
 
             <TextView
                 android:layout_weight=".33"
                 android:padding="3dip"
+                android:gravity="center_horizontal"
                 android:text="Τηλέφωνο" />
 
             <TextView
                 android:layout_weight=".33"
                 android:padding="3dip"
+                android:gravity="center_horizontal"
                 android:text="Διεύθυνση" />
         </TableRow>
 
         <TableRow>
 
             <TextView
-                android:layout_weight=".33"
                 android:layout_column="1"
+                android:layout_weight=".33"
+                android:padding="3dip"
+                android:gravity="center_horizontal"
+                android:text="Open..." />
+
+            <TextView
+                android:layout_weight=".33"
+                android:gravity="center_horizontal"
+                android:padding="3dip"
+                android:text="Ctrl-O" />
+
+            <TextView
+                android:layout_weight=".33"
+                android:padding="3dip"
+                android:gravity="center_horizontal"
+                android:text="TextView" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_column="1"
+                android:layout_weight=".33"
+                android:gravity="center_horizontal"
                 android:padding="3dip"
                 android:text="Open..." />
 
             <TextView
                 android:layout_weight=".33"
                 android:padding="3dip"
+                android:gravity="center_horizontal"
                 android:text="Ctrl-O" />
 
             <TextView
                 android:layout_weight=".33"
+                android:gravity="center_horizontal"
                 android:padding="3dip"
                 android:text="TextView" />
         </TableRow>
@@ -62,57 +95,44 @@
         <TableRow>
 
             <TextView
-                android:layout_weight=".33"
                 android:layout_column="1"
+                android:layout_weight=".33"
+                android:gravity="center_horizontal"
                 android:padding="3dip"
                 android:text="Open..." />
 
             <TextView
                 android:layout_weight=".33"
                 android:padding="3dip"
+                android:gravity="center_horizontal"
                 android:text="Ctrl-O" />
 
             <TextView
                 android:layout_weight=".33"
                 android:padding="3dip"
+                android:gravity="center_horizontal"
                 android:text="TextView" />
         </TableRow>
 
         <TableRow>
 
             <TextView
-                android:layout_weight=".33"
                 android:layout_column="1"
+                android:layout_weight=".33"
+                android:gravity="center_horizontal"
                 android:padding="3dip"
                 android:text="Open..." />
 
             <TextView
                 android:layout_weight=".33"
                 android:padding="3dip"
+                android:gravity="center_horizontal"
                 android:text="Ctrl-O" />
 
             <TextView
                 android:layout_weight=".33"
                 android:padding="3dip"
-                android:text="TextView" />
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:layout_weight=".33"
-                android:layout_column="1"
-                android:padding="3dip"
-                android:text="Open..." />
-
-            <TextView
-                android:layout_weight=".33"
-                android:padding="3dip"
-                android:text="Ctrl-O" />
-
-            <TextView
-                android:layout_weight=".33"
-                android:padding="3dip"
+                android:gravity="center_horizontal"
                 android:text="TextView" />
         </TableRow>
 
@@ -122,17 +142,20 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop=".20sp"
         android:layout_marginLeft="16sp"
+        android:layout_marginTop="40dp"
+        android:autoSizeMaxTextSize="30sp"
+        android:autoSizeMinTextSize="20sp"
         android:text="Σημερινές Παραγγελίες"
         android:textColor="#0A0908"
         android:textSize="30sp"
-        android:autoSizeMaxTextSize="30sp"
-        android:autoSizeMinTextSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+
 
 
 </android.support.constraint.ConstraintLayout>

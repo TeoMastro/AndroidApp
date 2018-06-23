@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewOrder">
+    tools:context=".NewOrder"
+    android:background="@color/ic_launcher_background">
 
     <Spinner
         android:id="@+id/onomaPelati"

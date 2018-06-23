@@ -10,7 +10,6 @@
     android:paddingRight="16dp"
     android:paddingTop="16dp"
     android:background="@color/ic_launcher_background"
-
     android:backgroundTintMode="multiply"
     tools:context=".MainActivity">
 

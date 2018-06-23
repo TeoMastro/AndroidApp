@@ -7,6 +7,8 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.ActionBar;
@@ -73,11 +75,11 @@ public class MainActivity extends AppCompatActivity {
         PendingIntent broadcast = PendingIntent.getBroadcast(this, 100, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         Calendar cal = Calendar.getInstance();
+        cal.setTimeInMillis(System.currentTimeMillis());
         //cal.add(Calendar.HOUR_OF_DAY, 15);
         //(int) AlarmManager.INTERVAL_DAY
-        cal.add(Calendar.SECOND, 5);
-        cal.add(Calendar.HOUR,15);
-        cal.add(Calendar.MINUTE, 39);
+        cal.set(Calendar.HOUR_OF_DAY,13);
+        cal.set(Calendar.MINUTE,4);
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),AlarmManager.INTERVAL_DAY, broadcast);
     }
 
@@ -94,6 +96,19 @@ public class MainActivity extends AppCompatActivity {
     public void openSimerinesParaggelies(){  //kaleitai mesw toy onClickListener
         Intent pelatis = new Intent(MainActivity.this , simerinesParaggelies.class);
         startActivity(pelatis);
+    }
+
+    public void addTableRow(){  //dynamikh dhmiourgia table rows
+        int arithmosShmerinwnParaggeliwn=2; //o shmerinos arithmos paraggeliwn
+        int i=0;
+        TableRow seira = new TableRow(this);
+        TextView team1 = new TextView(this);
+        TextView team2 = new TextView(this);
+        TextView team3 = new TextView(this);
+        //TableLayout table1 = (TableLayout)findViewById(table);
+        for(i=0;i<=arithmosShmerinwnParaggeliwn;i++){
+
+        }
     }
 
 }
