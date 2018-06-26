@@ -21,14 +21,14 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public static final String T_PELATIS_DOI = "pelatisDOI";
     public static final String T_PELATIS_TK = "pelatisTK";
     //initialize the database
-    public MyDBHandler(Context context) {
+    public MyDBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_TABLE_CUSTOMER = "CREATE TABLE " + TABLE_CUSTOMER + "(" + T_PELATIS_ID +
-                "INTEGER PRIMARYKEY," + T_PELATIS_NAME + "TEXT," + T_PELATIS_ADDRESS + "TEXT," + T_PELATIS_PHONE +
-                "TEXT," + T_PELATIS_AFM + "TEXT," + T_PELATIS_JOB + "TEXT," + T_PELATIS_DOI + "TEXT," + T_PELATIS_TK + "TEXT )";
+        String CREATE_TABLE_CUSTOMER = "CREATE TABLE " + TABLE_CUSTOMER + " (" + T_PELATIS_ID +
+                "INTEGER PRIMARYKEY," + T_PELATIS_NAME + " TEXT, " + T_PELATIS_ADDRESS + " TEXT, " + T_PELATIS_PHONE +
+                " TEXT, " + T_PELATIS_AFM + " TEXT, " + T_PELATIS_JOB + " TEXT, " + T_PELATIS_DOI + " TEXT, " + T_PELATIS_TK + " TEXT )";
         db.execSQL(CREATE_TABLE_CUSTOMER);
     }
     @Override
@@ -56,7 +56,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
     public Customer loadCustomer(String pname) {
         String result = "";
-        String query = "Select * FROM" + TABLE_CUSTOMER + "WHERE" + T_PELATIS_ID + "= '" + pname + "'";
+        String query = "Select * FROM " + TABLE_CUSTOMER + " WHERE " + T_PELATIS_ID + "= '" + pname + "'";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         Customer customer = new Customer();
@@ -80,7 +80,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
     public void addCustomer(Customer customer) {
         ContentValues values = new ContentValues();
-        values.put(T_PELATIS_ID, customer.getPelatisID());
+
         values.put(T_PELATIS_NAME, customer.getPelatisName());
         values.put(T_PELATIS_ADDRESS, customer.getPelatisAddress());
         values.put(T_PELATIS_PHONE, customer.getPelatisPhone());

@@ -12,8 +12,7 @@ public class Customer {
     private String pelatisTK;
     // constructors
     public Customer() {}
-    public Customer(int id, String name, String address, String phone, String afm, String job, String doi, String tk) {
-        this.pelatisID = id;
+    public Customer(String name, String address, String phone, String afm, String job, String doi, String tk) {
         this.pelatisName = name;
         this.pelatisAddress = address;
         this.pelatisPhone = phone;
