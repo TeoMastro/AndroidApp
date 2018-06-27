@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".simerinesParaggelies"
-    android:background="@color/ic_launcher_background">
+    android:background="@color/ic_launcher_background"
+    tools:context=".simerinesParaggelies">
 
     <TableLayout
         android:id="@+id/table"
@@ -31,20 +31,20 @@
             <TextView
                 android:layout_column="1"
                 android:layout_weight=".33"
-                android:padding="3dip"
                 android:gravity="center_horizontal"
+                android:padding="3dip"
                 android:text="Όνομα" />
 
             <TextView
                 android:layout_weight=".33"
-                android:padding="3dip"
                 android:gravity="center_horizontal"
+                android:padding="3dip"
                 android:text="Τηλέφωνο" />
 
             <TextView
                 android:layout_weight=".33"
-                android:padding="3dip"
                 android:gravity="center_horizontal"
+                android:padding="3dip"
                 android:text="Διεύθυνση" />
         </TableRow>
 
@@ -53,36 +53,14 @@
             <TextView
                 android:layout_column="1"
                 android:layout_weight=".33"
-                android:padding="3dip"
-                android:gravity="center_horizontal"
-                android:text="Open..." />
-
-            <TextView
-                android:layout_weight=".33"
-                android:gravity="center_horizontal"
-                android:padding="3dip"
-                android:text="Ctrl-O" />
-
-            <TextView
-                android:layout_weight=".33"
-                android:padding="3dip"
-                android:gravity="center_horizontal"
-                android:text="TextView" />
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:layout_column="1"
-                android:layout_weight=".33"
                 android:gravity="center_horizontal"
                 android:padding="3dip"
                 android:text="Open..." />
 
             <TextView
                 android:layout_weight=".33"
-                android:padding="3dip"
                 android:gravity="center_horizontal"
+                android:padding="3dip"
                 android:text="Ctrl-O" />
 
             <TextView
@@ -103,14 +81,14 @@
 
             <TextView
                 android:layout_weight=".33"
-                android:padding="3dip"
                 android:gravity="center_horizontal"
+                android:padding="3dip"
                 android:text="Ctrl-O" />
 
             <TextView
                 android:layout_weight=".33"
-                android:padding="3dip"
                 android:gravity="center_horizontal"
+                android:padding="3dip"
                 android:text="TextView" />
         </TableRow>
 
@@ -125,14 +103,36 @@
 
             <TextView
                 android:layout_weight=".33"
-                android:padding="3dip"
                 android:gravity="center_horizontal"
+                android:padding="3dip"
                 android:text="Ctrl-O" />
 
             <TextView
                 android:layout_weight=".33"
-                android:padding="3dip"
                 android:gravity="center_horizontal"
+                android:padding="3dip"
+                android:text="TextView" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_column="1"
+                android:layout_weight=".33"
+                android:gravity="center_horizontal"
+                android:padding="3dip"
+                android:text="Open..." />
+
+            <TextView
+                android:layout_weight=".33"
+                android:gravity="center_horizontal"
+                android:padding="3dip"
+                android:text="Ctrl-O" />
+
+            <TextView
+                android:layout_weight=".33"
+                android:gravity="center_horizontal"
+                android:padding="3dip"
                 android:text="TextView" />
         </TableRow>
 
@@ -152,10 +152,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-
-
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>
