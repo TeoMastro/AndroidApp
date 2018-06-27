@@ -4,6 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/ic_launcher_background"
     tools:context=".loadingScreen">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="210dp"
+        android:layout_height="212dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/background" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/MyProgressBarTwo"
+        android:layout_width="0dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="264dp"
+        android:progress="0"
+        android:progressDrawable="@drawable/customprogressbar"
+        android:secondaryProgress="60"
+        android:theme="@style/MyProgressBarTwo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 </android.support.constraint.ConstraintLayout>

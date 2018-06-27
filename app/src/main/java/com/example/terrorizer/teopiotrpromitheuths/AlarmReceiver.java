@@ -35,6 +35,7 @@ public class AlarmReceiver extends BroadcastReceiver {
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentIntent(pendingIntent).build();
 
+        builder.setAutoCancel(true);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             builder.setChannelId(CHANNEL_ID);
         }
