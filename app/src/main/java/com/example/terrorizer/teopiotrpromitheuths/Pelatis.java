@@ -1,9 +1,14 @@
 package com.example.terrorizer.teopiotrpromitheuths;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class Pelatis extends AppCompatActivity {
     EditText onomapelati;
@@ -13,11 +18,13 @@ public class Pelatis extends AppCompatActivity {
     EditText jobpelati;
     EditText doipelati;
     EditText tkpelati;
+    LinearLayout mainLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pelatis);
+
     }
     public void addCustomer(View view) {
         onomapelati = (EditText)findViewById(R.id.onomaPelati);
@@ -41,5 +48,22 @@ public class Pelatis extends AppCompatActivity {
         dbHandler.addCustomer(customer);
         onomapelati.setText("");
         addresspelati.setText("");
+        thlpelati.setText("");
+        afmpelati.setText("");
+        jobpelati.setText("");
+        doipelati.setText("");
+        tkpelati.setText("");
+
+        mainLayout = (LinearLayout)findViewById(R.id.linearButton);
+        MessageBox("Ο Πελάτης " + name + " προσθέθηκε με επιτυχία! \n Αν θέλετε μπορείτε να προσθέσετε καινουργιο πελάτη");
+        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(mainLayout.getWindowToken(), 0);
+    }
+
+    public void MessageBox(String message)
+    {
+        Toast toast = Toast.makeText(this, message, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show();
     }
 }
