@@ -95,26 +95,26 @@ public class MyDBHandler extends SQLiteOpenHelper {
         return customer;
     }
 
-    public Items loadItem(String pname) {
-        String result = "";
-        String query = "Select * FROM Items WHERE itemName = " + pname;
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(query, null);
-        Items item = new Items();
-        if (cursor.moveToFirst()) {
-            cursor.moveToFirst();
-            item.setItemID(Integer.parseInt(cursor.getString(0)));
-            item.setItemName(cursor.getString(1));
-            item.setItemVaros(cursor.getString(2));
-            item.setItemPrice(cursor.getString(3));
-            item.setItemKib(cursor.getString(4));
-            cursor.close();
-        } else {
-            item = null;
-        }
-        db.close();
-        return item;
-    }
+    //public Items loadItem(String pname) {
+        //String result = "";
+       // String query = "Select * FROM Items WHERE itemName = " + pname;
+       // SQLiteDatabase db = this.getWritableDatabase();
+       // Cursor cursor = db.rawQuery(query, null);
+       // Items item = new Items();
+       // if (cursor.moveToFirst()) {
+       //     cursor.moveToFirst();
+      //      item.setItemID(Integer.parseInt(cursor.getString(0)));
+        //    item.setItemName(cursor.getString(1));
+           // item.setItemVaros(cursor.getString(2));
+          //  item.setItemPrice(cursor.getString(3));
+           // item.setItemKib(cursor.getString(4));
+           // cursor.close();
+      //  } else {
+           // item = null;
+       // }
+       // db.close();
+       // return item;
+   // }
 
     public void addCustomer(Customer customer) {
         ContentValues values = new ContentValues();
@@ -131,18 +131,18 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.insert(TABLE_CUSTOMER, null, values);
         db.close();
     }
-    public void addItem(Items item) {
-        ContentValues values = new ContentValues();
+   // public void addItem(Items item) {
+        //ContentValues values = new ContentValues();
 
-        values.put("itemName", item.getItemName());
-        values.put("itemPrice", item.getItemPrice());
-        values.put("itemVaros", item.getItemVaros());
-        values.put("itemKib", item.getItemKib());
+       // values.put("itemName", item.getItemName());
+       // values.put("itemPrice", item.getItemPrice());
+      //  values.put("itemVaros", item.getItemVaros());
+      //  values.put("itemKib", item.getItemKib());
 
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.insert("Items", null, values);
-        db.close();
-    }
+       // SQLiteDatabase db = this.getWritableDatabase();
+      //  db.insert("Items", null, values);
+       // db.close();
+    //}
 
     public boolean deleteCustomer(int ID) {
         boolean result = false;

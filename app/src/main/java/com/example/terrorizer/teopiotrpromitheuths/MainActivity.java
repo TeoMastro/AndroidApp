@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     Button newOrder;
     Button pelatis;
     Button simerinesParaggelies;
+    Button proionta;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -55,6 +56,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        proionta = (Button)findViewById(R.id.product);
+        proionta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openProionta();
+            }
+        });
         Date date = new Date();
         Locale locale = new Locale("el", "GR");
         String dateprint = new SimpleDateFormat("EEEE dd-MM-yyy",locale).format(date);
@@ -88,6 +96,11 @@ public class MainActivity extends AppCompatActivity {
     public void openSimerinesParaggelies(){  //kaleitai mesw toy onClickListener
         Intent pelatis = new Intent(MainActivity.this , ShowPelates.class);
         startActivity(pelatis);
+    }
+
+    public void openProionta(){  //kaleitai mesw toy onClickListener
+        Intent openProion = new Intent(MainActivity.this , proionta.class);
+        startActivity(openProion);
     }
 
     public void addTableRow(){  //dynamikh dhmiourgia table rows

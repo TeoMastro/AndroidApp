@@ -8,7 +8,7 @@
     android:background="@color/ic_launcher_background">
 
     <Spinner
-        android:id="@+id/onomaPelati"
+        android:id="@+id/onomaProiontosEdit"
         android:layout_width="250dp"
         android:layout_height="28dp"
         android:layout_marginTop="92dp"
@@ -41,7 +41,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/onomaPelati" />
+        app:layout_constraintTop_toBottomOf="@+id/onomaProiontosEdit" />
 
     <EditText
         android:id="@+id/quantity2"

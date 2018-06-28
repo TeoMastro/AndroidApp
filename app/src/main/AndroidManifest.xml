@@ -34,7 +34,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".ShowPelates" />
-        <activity android:name=".ViewPelatisProfile"></activity>
+        <activity android:name=".ViewPelatisProfile" />
+        <activity android:name=".diaxhrhshPelatwn" />
+        <activity android:name=".proionta" />
+        <activity android:name=".diaxhrhshProiontos"></activity>
     </application>
 
 </manifest>

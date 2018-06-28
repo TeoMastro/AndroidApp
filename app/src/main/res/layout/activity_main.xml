@@ -59,11 +59,11 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:background="#2D3142"
-            android:text="Προσθηκη Πελατη"
+            android:text="Πελατες"
             android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/allOrders" />
+            app:layout_constraintTop_toBottomOf="@+id/product" />
 
         <Button
             android:id="@+id/ordersToday"
@@ -84,7 +84,7 @@
             app:layout_constraintTop_toBottomOf="@+id/newOrder" />
 
         <Button
-            android:id="@+id/allOrders"
+            android:id="@+id/product"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -95,7 +95,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:background="#2D3142"
-            android:text="Ιστορικο Παραγγελιων"
+            android:text="Προιοντα"
             android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

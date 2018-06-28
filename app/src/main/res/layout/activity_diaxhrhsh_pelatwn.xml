@@ -16,7 +16,7 @@
         android:layout_marginTop="20dp"
         android:background="@color/ic_launcher_background"
         android:padding="10dp"
-        tools:context=".Pelatis">
+        tools:context=".diaxhrhshPelatwn">
 
         <LinearLayout
             android:id="@+id/liniearmessageEdit"
@@ -26,10 +26,10 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintHorizontal_bias="0.503"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -38,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="Προσθήκη Νέου Πελάτη"
+                android:text="Επιλογή Πελάτη"
                 android:textColor="#0A0908"
                 android:textSize="25dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -55,7 +55,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="68dp"
+            android:layout_marginTop="100dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -233,35 +233,10 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearButtonAddProion"
-            android:layout_width="wrap_content"
-            android:layout_height="62dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/linearButtonEditProionEdit"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lineartkEdit">
-
-            <Button
-                android:id="@+id/prosthikiProiontos"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:background="#2D3142"
-                android:onClick="addCustomer"
-                android:text="Προσθήκη Πελάτη"
-                android:textColor="#FFFFFF"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-        </LinearLayout>
-
-        <LinearLayout
             android:id="@+id/linearButtonEditProionEdit"
             android:layout_width="wrap_content"
             android:layout_height="64dp"
-            android:layout_marginTop="88dp"
+            android:layout_marginTop="24dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -272,11 +247,31 @@
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:background="#2D3142"
-                android:text="Διαχείρηση Πελατών"
+                android:text="Επεξεργασια"
                 android:textColor="#FFFFFF"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/liniearOnomaProiontosEdit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/liniearmessageEdit"
+            app:layout_constraintVertical_bias="0.0">
+
+            <Spinner
+                android:id="@+id/choosePelathEdit"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
     </android.support.constraint.ConstraintLayout>
