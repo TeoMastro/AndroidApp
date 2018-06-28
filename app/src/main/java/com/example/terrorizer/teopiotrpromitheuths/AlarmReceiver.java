@@ -29,6 +29,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         Notification.Builder builder = new Notification.Builder(context);
 
+
         Notification notification = builder.setContentTitle("Καλημέρα")
                 .setContentText("Ώρα να πάτε για δουλειά")
                 .setTicker("Νέο μήνυμα")

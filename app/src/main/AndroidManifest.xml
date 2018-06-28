@@ -17,14 +17,15 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".Pelatis" />
         <activity android:name=".NewOrder" />
-        <activity android:name=".LoginScreen">
-        </activity>
+        <activity android:name=".LoginScreen" />
         <activity android:name=".simerinesParaggelies" />
+
         <receiver android:name=".AlarmReceiver">
             <intent-filter>
                 <action android:name="singh.ajit.action.DISPLAY_NOTIFICATION" />
             </intent-filter>
         </receiver>
+
         <activity android:name=".loadingScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,6 +33,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ShowPelates" />
+        <activity android:name=".ViewPelatisProfile"></activity>
     </application>
 
 </manifest>

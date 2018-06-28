@@ -1,11 +1,11 @@
 package com.example.terrorizer.teopiotrpromitheuths;
 
 
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.content.Context;
-import android.content.ContentValues;
-import android.database.Cursor;
 
 public class MyDBHandler extends SQLiteOpenHelper {
     //information of database
@@ -30,6 +30,9 @@ public class MyDBHandler extends SQLiteOpenHelper {
                 " INTEGER PRIMARY KEY AUTOINCREMENT," + T_PELATIS_NAME + " TEXT, " + T_PELATIS_ADDRESS + " TEXT, " + T_PELATIS_PHONE +
                 " TEXT, " + T_PELATIS_AFM + " TEXT, " + T_PELATIS_JOB + " TEXT, " + T_PELATIS_DOI + " TEXT, " + T_PELATIS_TK + " TEXT )";
         db.execSQL(CREATE_TABLE_CUSTOMER);
+
+        String CREATE_TABLE_ITEMS = "CREATE TABLE Items ( itemID INTEGER PRIMARY KEY AUTOINCREMENT , itemPrice TEXT, itemVaros TEXT, itemKib TEXT)";
+        db.execSQL(CREATE_TABLE_ITEMS);
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
@@ -41,6 +44,20 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public String loadAllCustomer() {
         String result = "";
         String query = "Select * FROM " + TABLE_CUSTOMER;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        while (cursor.moveToNext()) {
+            String result_1 = cursor.getString(1);
+            result += result_1 + " ,";
+        }
+        cursor.close();
+        db.close();
+        return result;
+    }
+
+    public String loadAllItems() {
+        String result = "";
+        String query = "Select * FROM Items";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         while (cursor.moveToNext()) {
@@ -78,6 +95,27 @@ public class MyDBHandler extends SQLiteOpenHelper {
         return customer;
     }
 
+    public Items loadItem(String pname) {
+        String result = "";
+        String query = "Select * FROM Items WHERE itemName = " + pname;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        Items item = new Items();
+        if (cursor.moveToFirst()) {
+            cursor.moveToFirst();
+            item.setItemID(Integer.parseInt(cursor.getString(0)));
+            item.setItemName(cursor.getString(1));
+            item.setItemVaros(cursor.getString(2));
+            item.setItemPrice(cursor.getString(3));
+            item.setItemKib(cursor.getString(4));
+            cursor.close();
+        } else {
+            item = null;
+        }
+        db.close();
+        return item;
+    }
+
     public void addCustomer(Customer customer) {
         ContentValues values = new ContentValues();
 
@@ -91,6 +129,18 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(TABLE_CUSTOMER, null, values);
+        db.close();
+    }
+    public void addItem(Items item) {
+        ContentValues values = new ContentValues();
+
+        values.put("itemName", item.getItemName());
+        values.put("itemPrice", item.getItemPrice());
+        values.put("itemVaros", item.getItemVaros());
+        values.put("itemKib", item.getItemKib());
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.insert("Items", null, values);
         db.close();
     }
 
