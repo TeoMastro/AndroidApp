@@ -25,7 +25,7 @@ public class proionta extends AppCompatActivity {
     }
 
     public void openDiaxeirhshProiontwn(){  //kaleitai mesw toy onClickListener
-        Intent diaxeirhshProiontwn = new Intent(this , diaxhrhshProiontos.class);
+        Intent diaxeirhshProiontwn = new Intent(this , EditProin.class);
         startActivity(diaxeirhshProiontwn);
     }
 }

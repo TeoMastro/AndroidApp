@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-public class Pelatis extends AppCompatActivity {
+public class AddPelates extends AppCompatActivity {
     EditText onomapelati;
     EditText addresspelati;
     EditText thlpelati;

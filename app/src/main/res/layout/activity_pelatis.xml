@@ -13,8 +13,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/ic_launcher_background"
+        android:layout_marginTop="20dp"
         android:padding="10dp"
-        tools:context=".Pelatis">
+        tools:context=".AddPelates">
 
         <LinearLayout
             android:id="@id/title"
@@ -40,7 +41,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="Εμφάνιση Πελατών"
+                android:text="Προσθήκη Πελάτη"
                 android:textColor="#0A0908"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"

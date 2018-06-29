@@ -7,7 +7,7 @@
     android:layout_gravity="center_vertical"
     android:background="@color/ic_launcher_background"
     android:padding="10dp"
-    tools:context=".diaxhrhshProiontos">
+    tools:context=".EditProin">
 
     <TextView
         android:id="@+id/messageProionEdit"
@@ -23,7 +23,7 @@
 
 
     <LinearLayout
-        android:id="@+id/liniearOnomaProiontosEdit"
+        android:id="@+id/linearOnomaPelatiEdit"
         android:layout_width="wrap_content"
         android:layout_height="70dp"
         android:layout_marginEnd="8dp"
@@ -39,17 +39,17 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:labelFor="@id/onomaProiontosEdit"
+            android:labelFor="@id/onomaPelatiEdit"
             android:text="Όνομα Προιόντος" />
 
         <EditText
-            android:id="@+id/onomaProiontosEdit"
+            android:id="@+id/onomaPelatiEdit"
             android:layout_width="344dp"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearVarosEdit"
+        android:id="@+id/linearAddressEdit"
         android:layout_width="wrap_content"
         android:layout_height="66dp"
         android:layout_marginEnd="8dp"
@@ -60,22 +60,22 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/liniearOnomaProiontosEdit">
+        app:layout_constraintTop_toBottomOf="@+id/linearOnomaPelatiEdit">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:labelFor="@id/VarosEdit"
+            android:labelFor="@id/AddressEdit"
             android:text="Βάρος Προιόντος" />
 
         <EditText
-            android:id="@+id/VarosEdit"
+            android:id="@+id/AddressEdit"
             android:layout_width="344dp"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/liniearTimhEdit"
+        android:id="@+id/linearThlEdit"
         android:layout_width="wrap_content"
         android:layout_height="65dp"
         android:layout_marginBottom="1dp"
@@ -85,25 +85,25 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/linearKivotioEdit"
+        app:layout_constraintBottom_toTopOf="@+id/linearAFMEdit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearVarosEdit">
+        app:layout_constraintTop_toBottomOf="@+id/linearAddressEdit">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:labelFor="@id/timhEdit"
+            android:labelFor="@id/ThlEdit"
             android:text="Τιμή Προιόντος" />
 
         <EditText
-            android:id="@+id/timhEdit"
+            android:id="@+id/ThlEdit"
             android:layout_width="344dp"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearKivotioEdit"
+        android:id="@+id/linearAFMEdit"
         android:layout_width="wrap_content"
         android:layout_height="66dp"
         android:layout_marginEnd="8dp"
@@ -114,29 +114,29 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/liniearTimhEdit">
+        app:layout_constraintTop_toBottomOf="@+id/linearThlEdit">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:labelFor="@id/KivotioEdit"
+            android:labelFor="@id/AFMEdit"
             android:text="Τεμάχια ανά κιβώτιο" />
 
         <EditText
-            android:id="@+id/KivotioEdit"
+            android:id="@+id/AFMEdit"
             android:layout_width="344dp"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearButtonEditProionEdit"
+        android:id="@+id/linearAddBtnEdit"
         android:layout_width="wrap_content"
         android:layout_height="64dp"
         android:layout_marginTop="24dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearKivotioEdit">
+        app:layout_constraintTop_toBottomOf="@+id/linearAFMEdit">
 
         <Button
             android:id="@+id/diaxeirhProiontonEdit"

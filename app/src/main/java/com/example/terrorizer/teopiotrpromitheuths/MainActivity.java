@@ -84,17 +84,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openOrder(){  //kaleitai mesw toy onClickListener
-        Intent order = new Intent(MainActivity.this , NewOrder.class);
+        Intent order = new Intent(MainActivity.this , ShowPelates.class);
         startActivity(order);
     }
 
     public void openPelatis(){  //kaleitai mesw toy onClickListener
-        Intent pelatis = new Intent(MainActivity.this , Pelatis.class);
+        Intent pelatis = new Intent(MainActivity.this , ShowPelates.class);
         startActivity(pelatis);
     }
 
     public void openSimerinesParaggelies(){  //kaleitai mesw toy onClickListener
-        Intent pelatis = new Intent(MainActivity.this , ShowPelates.class);
+        Intent pelatis = new Intent(MainActivity.this , simerinesParaggelies.class);
         startActivity(pelatis);
     }
 

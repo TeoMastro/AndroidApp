@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/ic_launcher_background"
     android:scrollbarStyle="insideOverlay">
 
@@ -11,15 +11,15 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_marginTop="20dp"
         android:background="@color/ic_launcher_background"
         android:padding="10dp"
-        tools:context=".diaxhrhshPelatwn">
+        tools:context=".EditPelates">
 
         <LinearLayout
-            android:id="@+id/liniearmessageEdit"
+            android:id="@+id/linearEditTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -34,7 +34,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/messageProionEdit"
+                android:id="@+id/EditTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -48,35 +48,57 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/liniearOnomaProiontosEdit"
+            android:id="@+id/linearSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/linearOnomaPelatiEdit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearEditTitle"
+            app:layout_constraintVertical_bias="0.361">
+
+            <Spinner
+                android:id="@+id/Spinner1"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearOnomaPelatiEdit"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginStart="16dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/linearSpinner">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/onomaProiontosEdit"
+                android:labelFor="@id/onomaPelatiEdit"
                 android:text="Όνομα Πελάτη" />
 
             <EditText
-                android:id="@+id/onomaProiontosEdit"
+                android:id="@+id/onomaPelatiEdit"
                 android:layout_width="344dp"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearVarosEdit"
+            android:id="@+id/linearAddressEdit"
             android:layout_width="wrap_content"
-            android:layout_height="66dp"
+            android:layout_height="70dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -85,24 +107,24 @@
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/liniearOnomaProiontosEdit">
+            app:layout_constraintTop_toBottomOf="@+id/linearOnomaPelatiEdit">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/VarosEdit"
+                android:labelFor="@id/AddressEdit"
                 android:text="Διεύθηνση" />
 
             <EditText
-                android:id="@+id/VarosEdit"
+                android:id="@+id/AddressEdit"
                 android:layout_width="344dp"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/liniearTimhEdit"
+            android:id="@+id/linearThlEdit"
             android:layout_width="wrap_content"
-            android:layout_height="65dp"
+            android:layout_height="70dp"
             android:layout_marginBottom="1dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
@@ -110,27 +132,27 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/linearKivotioEdit"
+            app:layout_constraintBottom_toTopOf="@+id/linearAFMEdit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearVarosEdit">
+            app:layout_constraintTop_toBottomOf="@+id/linearAddressEdit">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/timhEdit"
+                android:labelFor="@id/ThlEdit"
                 android:text="Τηλέφωνο" />
 
             <EditText
-                android:id="@+id/timhEdit"
+                android:id="@+id/ThlEdit"
                 android:layout_width="344dp"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearKivotioEdit"
+            android:id="@+id/linearAFMEdit"
             android:layout_width="wrap_content"
-            android:layout_height="66dp"
+            android:layout_height="70dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -139,16 +161,16 @@
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/liniearTimhEdit">
+            app:layout_constraintTop_toBottomOf="@+id/linearThlEdit">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/KivotioEdit"
+                android:labelFor="@id/AFMEdit"
                 android:text="ΑΦΜ" />
 
             <EditText
-                android:id="@+id/KivotioEdit"
+                android:id="@+id/AFMEdit"
                 android:layout_width="344dp"
                 android:layout_height="wrap_content" />
         </LinearLayout>
@@ -156,7 +178,7 @@
         <LinearLayout
             android:id="@+id/linearjobEdit"
             android:layout_width="wrap_content"
-            android:layout_height="66dp"
+            android:layout_height="70dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -165,16 +187,16 @@
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearKivotioEdit">
+            app:layout_constraintTop_toBottomOf="@+id/linearAFMEdit">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/jobPelatiEdit"
+                android:labelFor="@id/jobEdit"
                 android:text="Επάγγελμα" />
 
             <EditText
-                android:id="@+id/jobPelatiEdit"
+                android:id="@+id/jobEdit"
                 android:layout_width="344dp"
                 android:layout_height="wrap_content" />
         </LinearLayout>
@@ -196,11 +218,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/doiPelatiEdit"
+                android:labelFor="@id/doiEdit"
                 android:text="ΔΟΥ" />
 
             <EditText
-                android:id="@+id/doiPelatiEdit"
+                android:id="@+id/doiEdit"
                 android:layout_width="344dp"
                 android:layout_height="wrap_content"
                 android:inputType="" />
@@ -209,7 +231,7 @@
         <LinearLayout
             android:id="@+id/lineartkEdit"
             android:layout_width="wrap_content"
-            android:layout_height="66dp"
+            android:layout_height="70dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -223,19 +245,19 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/tkPelatiEdit"
+                android:labelFor="@id/tkEdit"
                 android:text="@string/tk" />
 
             <EditText
-                android:id="@+id/tkPelatiEdit"
+                android:id="@+id/tkEdit"
                 android:layout_width="344dp"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearButtonEditProionEdit"
+            android:id="@+id/linearAddBtnEdit"
             android:layout_width="wrap_content"
-            android:layout_height="64dp"
+            android:layout_height="70dp"
             android:layout_marginTop="24dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
@@ -243,7 +265,7 @@
             app:layout_constraintTop_toBottomOf="@+id/lineartkEdit">
 
             <Button
-                android:id="@+id/diaxeirhProiontonEdit"
+                android:id="@+id/AddBtnEdit"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:background="#2D3142"
@@ -254,25 +276,6 @@
                 app:layout_constraintStart_toStartOf="parent" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/liniearOnomaProiontosEdit"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/liniearmessageEdit"
-            app:layout_constraintVertical_bias="0.0">
-
-            <Spinner
-                android:id="@+id/choosePelathEdit"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
 
     </android.support.constraint.ConstraintLayout>
 

@@ -16,6 +16,8 @@
         android:background="@color/ic_launcher_background"
         tools:context=".ShowPelates">
 
+
+
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
@@ -51,6 +53,47 @@
                 android:layout_gravity="center"
                 tools:layout_editor_absoluteX="429dp"
                 tools:layout_editor_absoluteY="8dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LinearList"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/LinearList">
+
+                <Button
+                    android:id="@+id/AddPelates"
+                    android:layout_width="140dp"
+                    android:layout_height="30dp"
+                    android:background="#2D3142"
+                    android:text="Προσθήκη Πελάτη"
+                    android:layout_marginRight="6dp"
+                    android:textColor="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/EditPelates"
+                    android:layout_width="150dp"
+                    android:layout_height="30dp"
+                    android:background="#2D3142"
+                    android:text="Επεξεργασία Πελάτη"
+                    android:textColor="#FFFFFF" />
+
+            </LinearLayout>
         </LinearLayout>
 
     </android.support.constraint.ConstraintLayout>

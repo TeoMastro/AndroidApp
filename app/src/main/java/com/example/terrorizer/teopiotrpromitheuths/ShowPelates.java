@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -13,12 +14,16 @@ import java.util.ArrayList;
 public class ShowPelates extends AppCompatActivity {
     MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
     ListView mListView;
+    Button addpelati;
+    Button editpelati;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_pelates);
         mListView = (ListView) findViewById(R.id.list);
+        addpelati = (Button) findViewById(R.id.AddPelates);
+        editpelati = (Button) findViewById(R.id.EditPelates);
 
         loadCustomer();
 
@@ -29,6 +34,18 @@ public class ShowPelates extends AppCompatActivity {
                 String name =(mListView.getItemAtPosition(pos).toString());
                 intent.putExtra("name", name);
                 startActivity(intent);
+            }
+        });
+        addpelati.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addPelati();
+            }
+        });
+        editpelati.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditPelati();
             }
         });
     }
@@ -46,5 +63,13 @@ public class ShowPelates extends AppCompatActivity {
         mListView.setAdapter(adapter);
     }
 
+    public void addPelati(){  //kaleitai mesw toy onClickListener
+        Intent pelatis = new Intent(ShowPelates.this , AddPelates.class);
+        startActivity(pelatis);
+    }
+    public void EditPelati(){  //kaleitai mesw toy onClickListener
+        Intent pelatis2 = new Intent(ShowPelates.this , EditPelates.class);
+        startActivity(pelatis2);
+    }
 
 }

@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
-        <activity android:name=".Pelatis" />
+        <activity android:name=".AddPelates" />
         <activity android:name=".NewOrder" />
         <activity android:name=".LoginScreen" />
         <activity android:name=".simerinesParaggelies" />
@@ -35,9 +35,9 @@
         </activity>
         <activity android:name=".ShowPelates" />
         <activity android:name=".ViewPelatisProfile" />
-        <activity android:name=".diaxhrhshPelatwn" />
+        <activity android:name=".EditPelates" />
         <activity android:name=".proionta" />
-        <activity android:name=".diaxhrhshProiontos"></activity>
+        <activity android:name=".EditProin"></activity>
     </application>
 
 </manifest>
