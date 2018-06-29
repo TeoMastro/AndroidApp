@@ -16,7 +16,7 @@
         android:layout_marginTop="4dp"
         android:text="Επιλογή Προιόντος"
         android:textColor="#0A0908"
-        android:textSize="25dp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
