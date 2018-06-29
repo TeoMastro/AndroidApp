@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/ic_launcher_background"
     android:scrollbarStyle="insideOverlay">
 
@@ -11,72 +11,76 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
         android:background="@color/ic_launcher_background"
         android:padding="10dp"
         tools:context=".Pelatis">
 
         <LinearLayout
-            android:id="@+id/liniearmessageEdit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/messageProionEdit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="Προσθήκη Νέου Πελάτη"
-                android:textColor="#0A0908"
-                android:textSize="25dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/liniearOnomaProiontosEdit"
+            android:id="@id/title"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="68dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
+                android:id="@+id/titleText"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Εμφάνιση Πελατών"
+                android:textColor="#0A0908"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linearOnomaPelati"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title">
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/onomaProiontosEdit"
+                android:labelFor="@id/OnomaPelati"
+                android:hint="Ονομα Πελάτη"
                 android:text="Όνομα Πελάτη" />
 
             <EditText
-                android:id="@+id/onomaProiontosEdit"
+                android:id="@+id/OnomaPelati"
                 android:layout_width="344dp"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearVarosEdit"
+            android:id="@+id/linearAddress"
             android:layout_width="wrap_content"
-            android:layout_height="66dp"
+            android:layout_height="70dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -85,24 +89,25 @@
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/liniearOnomaProiontosEdit">
+            app:layout_constraintTop_toBottomOf="@+id/linearOnomaPelati">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/VarosEdit"
+                android:labelFor="@id/AddressPelati"
                 android:text="Διεύθηνση" />
 
             <EditText
-                android:id="@+id/VarosEdit"
+                android:id="@+id/AddressPelati"
                 android:layout_width="344dp"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/liniearTimhEdit"
+            android:id="@+id/linearThl"
             android:layout_width="wrap_content"
-            android:layout_height="65dp"
+            android:layout_height="70dp"
             android:layout_marginBottom="1dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
@@ -110,77 +115,26 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/linearKivotioEdit"
+            app:layout_constraintBottom_toTopOf="@+id/linearAFM"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearVarosEdit">
+            app:layout_constraintTop_toBottomOf="@+id/linearAddress">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/timhEdit"
-                android:text="Τηλέφωνο" />
+                android:labelFor="@id/ThlPelati"
+                android:text="Τηλ." />
 
             <EditText
-                android:id="@+id/timhEdit"
+                android:id="@+id/ThlPelati"
                 android:layout_width="344dp"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearKivotioEdit"
-            android:layout_width="wrap_content"
-            android:layout_height="66dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/liniearTimhEdit">
-
-            <TextView
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/KivotioEdit"
-                android:text="ΑΦΜ" />
-
-            <EditText
-                android:id="@+id/KivotioEdit"
-                android:layout_width="344dp"
-                android:layout_height="wrap_content" />
+                android:inputType="" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearjobEdit"
-            android:layout_width="wrap_content"
-            android:layout_height="66dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearKivotioEdit">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:labelFor="@id/jobPelatiEdit"
-                android:text="Επάγγελμα" />
-
-            <EditText
-                android:id="@+id/jobPelatiEdit"
-                android:layout_width="344dp"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearDOYEdit"
+            android:id="@+id/linearAFM"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:layout_marginEnd="8dp"
@@ -191,25 +145,25 @@
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearjobEdit">
+            app:layout_constraintTop_toBottomOf="@+id/linearThl">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/doiPelatiEdit"
-                android:text="ΔΟΥ" />
+                android:labelFor="@id/AFMPelati"
+                android:text="ΑΦΜ" />
 
             <EditText
-                android:id="@+id/doiPelatiEdit"
+                android:id="@+id/AFMPelati"
                 android:layout_width="344dp"
                 android:layout_height="wrap_content"
                 android:inputType="" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/lineartkEdit"
+            android:id="@+id/linearJob"
             android:layout_width="wrap_content"
-            android:layout_height="66dp"
+            android:layout_height="70dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -218,61 +172,92 @@
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearDOYEdit">
+            app:layout_constraintTop_toBottomOf="@+id/linearAFM">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/tkPelatiEdit"
-                android:text="@string/tk" />
+                android:labelFor="@id/JobPelati"
+                android:text="Επάγγελμα" />
 
             <EditText
-                android:id="@+id/tkPelatiEdit"
+                android:id="@+id/JobPelati"
                 android:layout_width="344dp"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearButtonAddProion"
+            android:id="@+id/linearDOI"
             android:layout_width="wrap_content"
-            android:layout_height="62dp"
-            android:layout_marginBottom="8dp"
+            android:layout_height="70dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearJob">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:labelFor="@id/DOIpelati"
+                android:text="ΔΟΥ" />
+
+            <EditText
+                android:id="@+id/DOIpelati"
+                android:layout_width="344dp"
+                android:layout_height="wrap_content"
+                android:inputType="" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearTK"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearDOI">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:labelFor="@id/TKPelati"
+                android:text="ΤΚ." />
+
+            <EditText
+                android:id="@+id/TKPelati"
+                android:layout_width="344dp"
+                android:layout_height="wrap_content"
+                android:inputType="" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linearAddBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
             android:layout_marginTop="20dp"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/linearButtonEditProionEdit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lineartkEdit">
+            app:layout_constraintTop_toBottomOf="@+id/linearTK">
 
             <Button
-                android:id="@+id/prosthikiProiontos"
+                android:id="@+id/AddBtn"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:background="#2D3142"
-                android:onClick="addCustomer"
-                android:text="Προσθήκη Πελάτη"
-                android:textColor="#FFFFFF"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearButtonEditProionEdit"
-            android:layout_width="wrap_content"
-            android:layout_height="64dp"
-            android:layout_marginTop="88dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lineartkEdit">
-
-            <Button
-                android:id="@+id/diaxeirhProiontonEdit"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:background="#2D3142"
-                android:text="Διαχείρηση Πελατών"
+                android:text="Προσθηκη Πελάτη"
                 android:textColor="#FFFFFF"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

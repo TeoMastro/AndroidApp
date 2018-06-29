@@ -1,25 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/ic_launcher_background"
+    android:scrollbarStyle="insideOverlay">
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_gravity="center_vertical"
     android:background="@color/ic_launcher_background"
     android:padding="10dp"
     tools:context=".proionta">
 
-    <TextView
-        android:id="@+id/messageProionEdit"
+    <LinearLayout
+        android:id="@id/title"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Προσθήκη Νέου Προιόντος"
-        android:textColor="#0A0908"
-        android:textSize="25dp"
+        android:layout_height="70dp"
+        android:gravity="center_vertical"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/messageProionEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Προσθήκη Νέου Προιόντος"
+            android:textColor="#0A0908"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
 
 
     <LinearLayout
@@ -30,11 +58,11 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="16dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/title">
 
         <TextView
             android:layout_width="match_parent"
@@ -51,7 +79,7 @@
     <LinearLayout
         android:id="@+id/linearVarosEdit"
         android:layout_width="wrap_content"
-        android:layout_height="66dp"
+        android:layout_height="70dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -77,7 +105,7 @@
     <LinearLayout
         android:id="@+id/liniearTimhEdit"
         android:layout_width="wrap_content"
-        android:layout_height="65dp"
+        android:layout_height="70dp"
         android:layout_marginBottom="1dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
@@ -105,7 +133,7 @@
     <LinearLayout
         android:id="@+id/linearKivotioEdit"
         android:layout_width="wrap_content"
-        android:layout_height="66dp"
+        android:layout_height="70dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -131,7 +159,7 @@
     <LinearLayout
         android:id="@+id/linearButtonAddProion"
         android:layout_width="wrap_content"
-        android:layout_height="62dp"
+        android:layout_height="70dp"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="20dp"
         android:orientation="vertical"
@@ -155,7 +183,7 @@
     <LinearLayout
         android:id="@+id/linearButtonEditProionEdit"
         android:layout_width="wrap_content"
-        android:layout_height="64dp"
+        android:layout_height="70dp"
         android:layout_marginTop="112dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -176,3 +204,4 @@
 
 </android.support.constraint.ConstraintLayout>
 
+</ScrollView>
