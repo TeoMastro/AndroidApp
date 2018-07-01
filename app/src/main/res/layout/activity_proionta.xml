@@ -67,11 +67,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:labelFor="@id/onomaPelatiEdit"
+            android:labelFor="@id/onomaProiontosAdd"
             android:text="Όνομα Προιόντος" />
 
         <EditText
-            android:id="@+id/onomaPelatiEdit"
+            android:id="@+id/onomaProiontosAdd"
             android:layout_width="344dp"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -93,11 +93,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:labelFor="@id/AddressEdit"
+            android:labelFor="@id/VarosAdd"
             android:text="Βάρος Προιόντος" />
 
         <EditText
-            android:id="@+id/AddressEdit"
+            android:id="@+id/VarosAdd"
             android:layout_width="344dp"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -121,11 +121,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:labelFor="@id/ThlEdit"
+            android:labelFor="@id/TimhAdd"
             android:text="Τιμή Προιόντος" />
 
         <EditText
-            android:id="@+id/ThlEdit"
+            android:id="@+id/TimhAdd"
             android:layout_width="344dp"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -147,11 +147,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:labelFor="@id/AFMEdit"
+            android:labelFor="@id/KibAdd"
             android:text="Τεμάχια ανά κιβώτιο" />
 
         <EditText
-            android:id="@+id/AFMEdit"
+            android:id="@+id/KibAdd"
             android:layout_width="344dp"
             android:layout_height="wrap_content" />
     </LinearLayout>

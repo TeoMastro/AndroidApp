@@ -38,11 +38,11 @@ public class EditPelates extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
 
-                PelatisName = (EditText) findViewById(R.id.onomaPelatiEdit);
-                PelatisAdd = (EditText) findViewById(R.id.AddressEdit);
+                PelatisName = (EditText) findViewById(R.id.onomaProiontosAdd);
+                PelatisAdd = (EditText) findViewById(R.id.VarosAdd);
                 PelatisJob = (EditText) findViewById(R.id.jobEdit);
-                PelatisThl = (EditText) findViewById(R.id.ThlEdit);
-                PelatisAFM = (EditText) findViewById(R.id.AFMEdit);
+                PelatisThl = (EditText) findViewById(R.id.TimhAdd);
+                PelatisAFM = (EditText) findViewById(R.id.KibAdd);
                 PelatisDOI =  (EditText) findViewById(R.id.doiEdit);
                 PelatisTK = (EditText) findViewById(R.id.tkEdit);
                 int pid = parentView.getSelectedItemPosition() + 1;
@@ -83,7 +83,7 @@ public class EditPelates extends AppCompatActivity {
     public void updateCustomer(View view) {
         MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
         int pid = My_spinner.getSelectedItemPosition() + 1;
-        PelatisName = (EditText) findViewById(R.id.onomaPelatiEdit);
+        PelatisName = (EditText) findViewById(R.id.onomaProiontosAdd);
         String newname = PelatisName.getText().toString();
         String newadd = PelatisAdd.getText().toString();
         String newphone = PelatisThl.getText().toString();
