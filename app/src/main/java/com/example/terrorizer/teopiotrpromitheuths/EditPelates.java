@@ -14,6 +14,8 @@ public class EditPelates extends AppCompatActivity {
     MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
     Spinner My_spinner;
     EditText PelatisName;
+    EditText PelatisAdd;
+    EditText PelatisJob;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,17 +25,24 @@ public class EditPelates extends AppCompatActivity {
         My_spinner = (Spinner) findViewById(R.id.Spinner1);
         ArrayList<String> my_array;
         my_array = getTableValues();
-
         ArrayAdapter<String> my_Adapter = new ArrayAdapter<String>(this, R.layout.spinner_row, my_array);
         My_spinner.setAdapter(my_Adapter);
+
+
         My_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+
                 PelatisName = (EditText) findViewById(R.id.onomaPelatiEdit);
-                String text = parentView.getSelectedItem().toString();
-                Customer pelatis = dbHandler.loadCustomer(text);
-                if(pelatis != null){
-                    PelatisName.setText(pelatis.getPelatisName());
+                PelatisAdd = (EditText) findViewById(R.id.AddressEdit);
+                PelatisJob = (EditText) findViewById(R.id.jobEdit);
+                Customer customer = dbHandler.loadCustomer("petros");
+                if(customer != null){
+                    PelatisName.setText(customer.getPelatisName());
+                    PelatisJob.setText(customer.getPelatisJob());
+                    PelatisAdd.setText(customer.getPelatisAddress());
+                } else {
+                    PelatisName.setText("NO MOFO FOUND");
                 }
 
             }
@@ -49,7 +58,7 @@ public class EditPelates extends AppCompatActivity {
         MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
         ArrayList<String> my_array = new ArrayList<String>();
         String temp = dbHandler.loadAllCustomer().toString();
-        String qusChoice = temp.substring(1,temp.length() - 1);
+        String qusChoice = temp.substring(0,temp.length() - 1);
         String[] arrayList = qusChoice.split(",");
         for (int i = 0; i < arrayList.length; i++) {
 
@@ -60,10 +69,11 @@ public class EditPelates extends AppCompatActivity {
     public void findCustomer(View view) {
         MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
         Customer customer = dbHandler.loadCustomer(My_spinner.getSelectedItem().toString());
-        if (customer != null) {
-            PelatisName.setText(String.valueOf(customer.getPelatisID()));
-        } else {
+        if (customer == null) {
             PelatisName.setText("No Match Found");
+        } else {
+            PelatisName.setText(customer.getPelatisName());
+
         }
     }
 

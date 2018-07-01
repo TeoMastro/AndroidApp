@@ -13,6 +13,7 @@ public class Customer {
     // constructors
     public Customer() {}
     public Customer(String name, String address, String phone, String afm, String job, String doi, String tk) {
+        super();
         this.pelatisName = name;
         this.pelatisAddress = address;
         this.pelatisPhone = phone;

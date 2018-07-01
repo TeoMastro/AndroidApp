@@ -53,7 +53,7 @@ public class ShowPelates extends AppCompatActivity {
     public void loadCustomer() {
         String temp = dbHandler.loadAllCustomer().toString();
         if(temp != null && !temp.isEmpty()) {
-            String qusChoice = temp.substring(1, temp.length() - 1);
+            String qusChoice = temp.substring(0, temp.length() - 1);
             String[] arrayList = qusChoice.split(",");
             ArrayList<String> choiceList = new ArrayList<String>();
             for (int i = 0; i < arrayList.length; i++) {

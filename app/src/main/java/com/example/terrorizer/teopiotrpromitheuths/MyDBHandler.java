@@ -20,6 +20,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public static final String T_PELATIS_JOB = "pelatisJob";
     public static final String T_PELATIS_DOI = "pelatisDOI";
     public static final String T_PELATIS_TK = "pelatisTK";
+    private static final String[]  COLUMNS = {T_PELATIS_ID,T_PELATIS_NAME,T_PELATIS_ADDRESS,T_PELATIS_PHONE,T_PELATIS_AFM,T_PELATIS_JOB,T_PELATIS_DOI,T_PELATIS_TK};
     //initialize the database
     public MyDBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -71,49 +72,27 @@ public class MyDBHandler extends SQLiteOpenHelper {
         return result;
     }
 
-    public Customer loadCustomer(String pname) {
-        String query = "Select * FROM " + TABLE_CUSTOMER + " WHERE " + T_PELATIS_NAME + " = '" + pname + "'";
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(query, null);
-        Customer customer = new Customer();
-        if (cursor.moveToFirst()) {
-            cursor.moveToFirst();
-            customer.setPelatisID(Integer.parseInt(cursor.getString(0)));
-            customer.setPelatisName(cursor.getString(1));
-            customer.setPelatisAddress(cursor.getString(2));
-            customer.setPelatisPhone(cursor.getString(3));
-            customer.setPelatisAFM(cursor.getString(4));
-            customer.setPelatisJob(cursor.getString(5));
-            customer.setPelatisDOI(cursor.getString(6));
-            customer.setPelatisTK(cursor.getString(7));
-            cursor.close();
-        } else {
-            customer = null;
-        }
-        db.close();
-        return customer;
-    }
 
-    //public Items loadItem(String pname) {
-    //String result = "";
-    // String query = "Select * FROM Items WHERE itemName = " + pname;
-    // SQLiteDatabase db = this.getWritableDatabase();
-    // Cursor cursor = db.rawQuery(query, null);
-    // Items item = new Items();
-    // if (cursor.moveToFirst()) {
-    //     cursor.moveToFirst();
-    //      item.setItemID(Integer.parseInt(cursor.getString(0)));
-    //    item.setItemName(cursor.getString(1));
-    // item.setItemVaros(cursor.getString(2));
-    //  item.setItemPrice(cursor.getString(3));
-    // item.setItemKib(cursor.getString(4));
-    // cursor.close();
-    //  } else {
-    // item = null;
-    // }
-    // db.close();
-    // return item;
-    // }
+    public Customer loadCustomer(String pname) {
+         String query = "Select * FROM Customer WHERE pelatisName = '" + pname +"'";
+         SQLiteDatabase db = this.getWritableDatabase();
+         Cursor cursor = db.rawQuery(query, null);
+         Customer customer = new Customer();
+        if( cursor != null && cursor.moveToFirst() ) {
+                    cursor.moveToFirst();
+                  customer.setPelatisID(Integer.parseInt(cursor.getString(0)));
+                  customer.setPelatisName(cursor.getString(1));
+                  customer.setPelatisAddress(cursor.getString(2));
+                  customer.setPelatisJob(cursor.getString(3));
+           cursor.close();
+            db.close();
+           return customer;
+     } else {
+            db.close();
+           return customer = null;
+        }
+
+    }
 
     public void addCustomer(Customer customer) {
         ContentValues values = new ContentValues();
