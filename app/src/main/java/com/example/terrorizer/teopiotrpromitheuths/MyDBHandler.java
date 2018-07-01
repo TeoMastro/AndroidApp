@@ -20,6 +20,11 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public static final String T_PELATIS_JOB = "pelatisJob";
     public static final String T_PELATIS_DOI = "pelatisDOI";
     public static final String T_PELATIS_TK = "pelatisTK";
+    /*                 ---------ITEMS---------------                 */
+    public static final String TABLE_ITEMS = "Items";
+
+
+    /*                 ----------ITEMS---------------                 */
     private static final String[]  COLUMNS = {T_PELATIS_ID,T_PELATIS_NAME,T_PELATIS_ADDRESS,T_PELATIS_PHONE,T_PELATIS_AFM,T_PELATIS_JOB,T_PELATIS_DOI,T_PELATIS_TK};
     //initialize the database
     public MyDBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -32,8 +37,10 @@ public class MyDBHandler extends SQLiteOpenHelper {
                 " TEXT, " + T_PELATIS_AFM + " TEXT, " + T_PELATIS_JOB + " TEXT, " + T_PELATIS_DOI + " TEXT, " + T_PELATIS_TK + " TEXT )";
         db.execSQL(CREATE_TABLE_CUSTOMER);
 
+        /*                 ---------ITEMS---------------                 */
         String CREATE_TABLE_ITEMS = "CREATE TABLE Items ( itemID INTEGER PRIMARY KEY AUTOINCREMENT , itemPrice TEXT, itemVaros TEXT, itemKib TEXT)";
         db.execSQL(CREATE_TABLE_ITEMS);
+        /*                 ---------ITEMS---------------                 */
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
