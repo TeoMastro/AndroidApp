@@ -7,6 +7,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -78,6 +79,25 @@ public class EditPelates extends AppCompatActivity {
             my_array.add(arrayList[i]);
         }
         return my_array;
+    }
+    public void updateCustomer(View view) {
+        MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
+        int pid = My_spinner.getSelectedItemPosition() + 1;
+        PelatisName = (EditText) findViewById(R.id.onomaPelatiEdit);
+        String newname = PelatisName.getText().toString();
+        String newadd = PelatisAdd.getText().toString();
+        String newphone = PelatisThl.getText().toString();
+        String newafm = PelatisAFM.getText().toString();
+        String newjob = PelatisJob.getText().toString();
+        String newdoi = PelatisDOI.getText().toString();
+        String newtk = PelatisTK.getText().toString();
+        boolean result = dbHandler.updateCustomer(pid,newname,newadd,newphone,newafm,newjob,newdoi,newtk);
+        if (result) {
+            Toast.makeText(this, "UPDATE",
+                    Toast.LENGTH_LONG).show();
+        } else
+            Toast.makeText(this, "NOT FOUND",
+                    Toast.LENGTH_LONG).show();
     }
 
 }

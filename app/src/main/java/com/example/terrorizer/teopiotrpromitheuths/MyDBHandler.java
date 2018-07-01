@@ -56,22 +56,6 @@ public class MyDBHandler extends SQLiteOpenHelper {
         return result;
     }
 
-    public String loadAllItems() {
-        String result = "";
-        String query = "Select * FROM Items";
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(query, null);
-        while (cursor.moveToNext()) {
-            int result_0 = cursor.getInt(0);
-            String result_1 = cursor.getString(1);
-            result += String.valueOf(result_0) + " " + result_1 +
-                    System.getProperty("line.separator");
-        }
-        cursor.close();
-        db.close();
-        return result;
-    }
-
 
     public Customer loadCustomer(int id) {
          String query = "Select * FROM Customer WHERE pelatisID = '" + id +"'";
@@ -113,18 +97,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.insert(TABLE_CUSTOMER, null, values);
         db.close();
     }
-    // public void addItem(Items item) {
-    //ContentValues values = new ContentValues();
 
-    // values.put("itemName", item.getItemName());
-    // values.put("itemPrice", item.getItemPrice());
-    //  values.put("itemVaros", item.getItemVaros());
-    //  values.put("itemKib", item.getItemKib());
-
-    // SQLiteDatabase db = this.getWritableDatabase();
-    //  db.insert("Items", null, values);
-    // db.close();
-    //}
 
     public boolean deleteCustomer(int ID) {
         boolean result = false;
@@ -143,6 +116,20 @@ public class MyDBHandler extends SQLiteOpenHelper {
         }
         db.close();
         return result;
+    }
+
+    public boolean updateCustomer(int ID, String name, String add, String phone, String afm, String job, String doi, String tk) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues args = new ContentValues();
+        args.put(T_PELATIS_ID, ID);
+        args.put(T_PELATIS_NAME, name);
+        args.put(T_PELATIS_ADDRESS, add);
+        args.put(T_PELATIS_PHONE, phone);
+        args.put(T_PELATIS_AFM, afm);
+        args.put(T_PELATIS_JOB, job);
+        args.put(T_PELATIS_DOI, doi);
+        args.put(T_PELATIS_TK, tk);
+        return db.update(TABLE_CUSTOMER, args, T_PELATIS_ID + " = " + ID, null) > 0;
     }
 
 
