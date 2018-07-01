@@ -38,10 +38,10 @@ public class EditProin extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
 
-                onomaProiontos = (EditText) findViewById(R.id.onomaProiontosAdd);
-                timhProiontos = (EditText) findViewById(R.id.VarosAdd);
-                varosProiontos = (EditText) findViewById(R.id.jobEdit);
-                kibProiontos = (EditText) findViewById(R.id.TimhAdd);
+                onomaProiontos = (EditText) findViewById(R.id.onomaProiontosEdit);
+                timhProiontos = (EditText) findViewById(R.id.TimhEdit);
+                varosProiontos = (EditText) findViewById(R.id.VarosEdit);
+                kibProiontos = (EditText) findViewById(R.id.KibEdit);
                 int pid = parentView.getSelectedItemPosition() + 1;
                 Items item = dbHandler.loadItems(pid);
                 if(item != null){
