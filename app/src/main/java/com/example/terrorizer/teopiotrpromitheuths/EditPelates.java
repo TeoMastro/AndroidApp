@@ -38,11 +38,11 @@ public class EditPelates extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
 
-                PelatisName = (EditText) findViewById(R.id.onomaProiontosAdd);
-                PelatisAdd = (EditText) findViewById(R.id.VarosAdd);
+                PelatisName = (EditText) findViewById(R.id.OnomaPelatiEdit);
+                PelatisAdd = (EditText) findViewById(R.id.AddressPelatiEdit);
                 PelatisJob = (EditText) findViewById(R.id.jobEdit);
-                PelatisThl = (EditText) findViewById(R.id.TimhAdd);
-                PelatisAFM = (EditText) findViewById(R.id.KibAdd);
+                PelatisThl = (EditText) findViewById(R.id.ThlPelatiEdit);
+                PelatisAFM = (EditText) findViewById(R.id.AFMPelatiEdit);
                 PelatisDOI =  (EditText) findViewById(R.id.doiEdit);
                 PelatisTK = (EditText) findViewById(R.id.tkEdit);
                 int pid = parentView.getSelectedItemPosition() + 1;
