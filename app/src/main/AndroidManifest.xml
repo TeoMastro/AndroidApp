@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.terrorizer.teopiotrpromitheuths">
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
@@ -8,19 +9,20 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
-        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MainActivity" />
         <activity android:name=".AddPelates" />
         <activity android:name=".NewOrder" />
         <activity android:name=".LoginScreen" />
         <activity android:name=".simerinesParaggelies" />
 
-        <receiver android:name=".AlarmReceiver">
+        <receiver android:name=".AlarmReceiver"
+            tools:ignore="ExportedReceiver">
             <intent-filter>
                 <action android:name="singh.ajit.action.DISPLAY_NOTIFICATION" />
             </intent-filter>
@@ -37,7 +39,7 @@
         <activity android:name=".ViewPelatisProfile" />
         <activity android:name=".EditPelates" />
         <activity android:name=".proionta" />
-        <activity android:name=".EditProin"></activity>
+        <activity android:name=".EditProin"/>
     </application>
 
 </manifest>

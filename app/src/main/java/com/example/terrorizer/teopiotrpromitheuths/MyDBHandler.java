@@ -72,8 +72,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
     }
 
     public Customer loadCustomer(String pname) {
-        String result = "";
-        String query = "Select * FROM " + TABLE_CUSTOMER + " WHERE " + T_PELATIS_ID + "= '" + pname + "'";
+        String query = "Select * FROM " + TABLE_CUSTOMER + " WHERE " + T_PELATIS_NAME + " = '" + pname + "'";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         Customer customer = new Customer();
@@ -96,25 +95,25 @@ public class MyDBHandler extends SQLiteOpenHelper {
     }
 
     //public Items loadItem(String pname) {
-        //String result = "";
-       // String query = "Select * FROM Items WHERE itemName = " + pname;
-       // SQLiteDatabase db = this.getWritableDatabase();
-       // Cursor cursor = db.rawQuery(query, null);
-       // Items item = new Items();
-       // if (cursor.moveToFirst()) {
-       //     cursor.moveToFirst();
-      //      item.setItemID(Integer.parseInt(cursor.getString(0)));
-        //    item.setItemName(cursor.getString(1));
-           // item.setItemVaros(cursor.getString(2));
-          //  item.setItemPrice(cursor.getString(3));
-           // item.setItemKib(cursor.getString(4));
-           // cursor.close();
-      //  } else {
-           // item = null;
-       // }
-       // db.close();
-       // return item;
-   // }
+    //String result = "";
+    // String query = "Select * FROM Items WHERE itemName = " + pname;
+    // SQLiteDatabase db = this.getWritableDatabase();
+    // Cursor cursor = db.rawQuery(query, null);
+    // Items item = new Items();
+    // if (cursor.moveToFirst()) {
+    //     cursor.moveToFirst();
+    //      item.setItemID(Integer.parseInt(cursor.getString(0)));
+    //    item.setItemName(cursor.getString(1));
+    // item.setItemVaros(cursor.getString(2));
+    //  item.setItemPrice(cursor.getString(3));
+    // item.setItemKib(cursor.getString(4));
+    // cursor.close();
+    //  } else {
+    // item = null;
+    // }
+    // db.close();
+    // return item;
+    // }
 
     public void addCustomer(Customer customer) {
         ContentValues values = new ContentValues();
@@ -131,17 +130,17 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.insert(TABLE_CUSTOMER, null, values);
         db.close();
     }
-   // public void addItem(Items item) {
-        //ContentValues values = new ContentValues();
+    // public void addItem(Items item) {
+    //ContentValues values = new ContentValues();
 
-       // values.put("itemName", item.getItemName());
-       // values.put("itemPrice", item.getItemPrice());
-      //  values.put("itemVaros", item.getItemVaros());
-      //  values.put("itemKib", item.getItemKib());
+    // values.put("itemName", item.getItemName());
+    // values.put("itemPrice", item.getItemPrice());
+    //  values.put("itemVaros", item.getItemVaros());
+    //  values.put("itemKib", item.getItemKib());
 
-       // SQLiteDatabase db = this.getWritableDatabase();
-      //  db.insert("Items", null, values);
-       // db.close();
+    // SQLiteDatabase db = this.getWritableDatabase();
+    //  db.insert("Items", null, values);
+    // db.close();
     //}
 
     public boolean deleteCustomer(int ID) {
@@ -154,8 +153,8 @@ public class MyDBHandler extends SQLiteOpenHelper {
             customer.setPelatisID(Integer.parseInt(cursor.getString(0)));
             db.delete(TABLE_CUSTOMER, T_PELATIS_ID + "=?",
                     new String[] {
-                String.valueOf(customer.getPelatisID())
-            });
+                            String.valueOf(customer.getPelatisID())
+                    });
             cursor.close();
             result = true;
         }

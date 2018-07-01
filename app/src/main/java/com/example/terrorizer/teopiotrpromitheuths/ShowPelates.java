@@ -52,15 +52,19 @@ public class ShowPelates extends AppCompatActivity {
 
     public void loadCustomer() {
         String temp = dbHandler.loadAllCustomer().toString();
-        String qusChoice = temp.substring(1,temp.length() - 1);
-        String[] arrayList = qusChoice.split(",");
-        ArrayList<String> choiceList = new ArrayList<String>();
-        for (int i = 0; i < arrayList.length; i++) {
+        if(temp != null && !temp.isEmpty()) {
+            String qusChoice = temp.substring(1, temp.length() - 1);
+            String[] arrayList = qusChoice.split(",");
+            ArrayList<String> choiceList = new ArrayList<String>();
+            for (int i = 0; i < arrayList.length; i++) {
 
-            choiceList.add(arrayList[i]);
+                choiceList.add(arrayList[i]);
+            }
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(ShowPelates.this, R.layout.support_simple_spinner_dropdown_item, choiceList);
+            mListView.setAdapter(adapter);
+        }else {
+
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(ShowPelates.this,R.layout.support_simple_spinner_dropdown_item, choiceList );
-        mListView.setAdapter(adapter);
     }
 
     public void addPelati(){  //kaleitai mesw toy onClickListener
