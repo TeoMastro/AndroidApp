@@ -16,6 +16,10 @@ public class EditPelates extends AppCompatActivity {
     EditText PelatisName;
     EditText PelatisAdd;
     EditText PelatisJob;
+    EditText PelatisThl;
+    EditText PelatisAFM;
+    EditText PelatisDOI;
+    EditText PelatisTK;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +29,7 @@ public class EditPelates extends AppCompatActivity {
         My_spinner = (Spinner) findViewById(R.id.Spinner1);
         ArrayList<String> my_array;
         my_array = getTableValues();
-        ArrayAdapter<String> my_Adapter = new ArrayAdapter<String>(this, R.layout.spinner_row, my_array);
+        final ArrayAdapter<String> my_Adapter = new ArrayAdapter<String>(this, R.layout.spinner_row, my_array);
         My_spinner.setAdapter(my_Adapter);
 
 
@@ -36,11 +40,20 @@ public class EditPelates extends AppCompatActivity {
                 PelatisName = (EditText) findViewById(R.id.onomaPelatiEdit);
                 PelatisAdd = (EditText) findViewById(R.id.AddressEdit);
                 PelatisJob = (EditText) findViewById(R.id.jobEdit);
-                Customer customer = dbHandler.loadCustomer("petros");
+                PelatisThl = (EditText) findViewById(R.id.ThlEdit);
+                PelatisAFM = (EditText) findViewById(R.id.AFMEdit);
+                PelatisDOI =  (EditText) findViewById(R.id.doiEdit);
+                PelatisTK = (EditText) findViewById(R.id.tkEdit);
+                int pid = parentView.getSelectedItemPosition() + 1;
+                Customer customer = dbHandler.loadCustomer(pid);
                 if(customer != null){
                     PelatisName.setText(customer.getPelatisName());
                     PelatisJob.setText(customer.getPelatisJob());
                     PelatisAdd.setText(customer.getPelatisAddress());
+                    PelatisThl.setText(customer.getPelatisPhone());
+                    PelatisAFM.setText(customer.getPelatisAFM());
+                    PelatisDOI.setText(customer.getPelatisDOI());
+                    PelatisTK.setText(customer.getPelatisTK());
                 } else {
                     PelatisName.setText("NO MOFO FOUND");
                 }
@@ -65,16 +78,6 @@ public class EditPelates extends AppCompatActivity {
             my_array.add(arrayList[i]);
         }
         return my_array;
-    }
-    public void findCustomer(View view) {
-        MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
-        Customer customer = dbHandler.loadCustomer(My_spinner.getSelectedItem().toString());
-        if (customer == null) {
-            PelatisName.setText("No Match Found");
-        } else {
-            PelatisName.setText(customer.getPelatisName());
-
-        }
     }
 
 }

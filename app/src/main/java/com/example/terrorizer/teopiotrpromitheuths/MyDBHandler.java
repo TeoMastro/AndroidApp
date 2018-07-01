@@ -73,8 +73,8 @@ public class MyDBHandler extends SQLiteOpenHelper {
     }
 
 
-    public Customer loadCustomer(String pname) {
-         String query = "Select * FROM Customer WHERE pelatisName = '" + pname +"'";
+    public Customer loadCustomer(int id) {
+         String query = "Select * FROM Customer WHERE pelatisID = '" + id +"'";
          SQLiteDatabase db = this.getWritableDatabase();
          Cursor cursor = db.rawQuery(query, null);
          Customer customer = new Customer();
@@ -83,7 +83,11 @@ public class MyDBHandler extends SQLiteOpenHelper {
                   customer.setPelatisID(Integer.parseInt(cursor.getString(0)));
                   customer.setPelatisName(cursor.getString(1));
                   customer.setPelatisAddress(cursor.getString(2));
-                  customer.setPelatisJob(cursor.getString(3));
+                  customer.setPelatisPhone(cursor.getString(3));
+                  customer.setPelatisAFM(cursor.getString(4));
+                  customer.setPelatisJob(cursor.getString(5));
+                  customer.setPelatisDOI(cursor.getString(6));
+                  customer.setPelatisTK(cursor.getString(7));
            cursor.close();
             db.close();
            return customer;
