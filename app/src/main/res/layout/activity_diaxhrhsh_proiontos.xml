@@ -7,7 +7,7 @@
     android:layout_gravity="center_vertical"
     android:background="@color/ic_launcher_background"
     android:padding="10dp"
-    tools:context=".EditProin">
+    tools:context=".EditItems">
 
     <TextView
         android:id="@+id/messageProionEdit"

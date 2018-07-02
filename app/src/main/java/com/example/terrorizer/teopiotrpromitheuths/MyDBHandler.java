@@ -1,7 +1,6 @@
 package com.example.terrorizer.teopiotrpromitheuths;
 
 
-import android.content.ClipData;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -21,33 +20,34 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public static final String T_PELATIS_JOB = "pelatisJob";
     public static final String T_PELATIS_DOI = "pelatisDOI";
     public static final String T_PELATIS_TK = "pelatisTK";
-    /*                 ---------ITEMS---------------                 */
+    /*                 ---------Define Item Var---------------                 */
     public static final String TABLE_ITEMS = "Items";
     public static final String T_ITEM_ID = "itemID";
     public static final String T_ITEM_NAME = "itemName";
     public static final String T_ITEM_VAROS = "itemVaros";
     public static final String T_ITEM_TIMH = "itemTimh";
     public static final String T_ITEM_KIBOTIO = "itemKib";
-    /*                 ----------ITEMS---------------                 */
+    /*                 ---------Create Customer---------------                 */
+    private static final String CREATE_TABLE_CUSTOMER = "CREATE TABLE if not exists " + TABLE_CUSTOMER + " (" + T_PELATIS_ID +
+            " INTEGER PRIMARY KEY AUTOINCREMENT," + T_PELATIS_NAME + " TEXT, " + T_PELATIS_ADDRESS + " TEXT, " + T_PELATIS_PHONE +
+            " TEXT, " + T_PELATIS_AFM + " TEXT, " + T_PELATIS_JOB + " TEXT, " + T_PELATIS_DOI + " TEXT, " + T_PELATIS_TK + " TEXT )";
+
+    private static final String CREATE_TABLE_ITEMS = "CREATE TABLE if not exists " + TABLE_ITEMS + " (" + T_ITEM_ID + " INTEGER PRIMARY KEY AUTOINCREMENT ," + T_ITEM_NAME +
+            " TEXT ," + T_ITEM_TIMH + " TEXT, " + T_ITEM_VAROS + " TEXT, " + T_ITEM_KIBOTIO + "TEXT )";
+    /*                 ----------Create Items---------------                 */
     //initialize the database
     public MyDBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_TABLE_CUSTOMER = "CREATE TABLE " + TABLE_CUSTOMER + " (" + T_PELATIS_ID +
-                " INTEGER PRIMARY KEY AUTOINCREMENT," + T_PELATIS_NAME + " TEXT, " + T_PELATIS_ADDRESS + " TEXT, " + T_PELATIS_PHONE +
-                " TEXT, " + T_PELATIS_AFM + " TEXT, " + T_PELATIS_JOB + " TEXT, " + T_PELATIS_DOI + " TEXT, " + T_PELATIS_TK + " TEXT )";
         db.execSQL(CREATE_TABLE_CUSTOMER);
-
-        /*                 ---------ITEMS---------------                 */
-        String CREATE_TABLE_ITEMS = "CREATE TABLE Items ( itemID INTEGER PRIMARY KEY AUTOINCREMENT , itemName TEXT ,itemPrice TEXT, itemVaros TEXT, itemKib TEXT)";
         db.execSQL(CREATE_TABLE_ITEMS);
-        /*                 ---------ITEMS---------------                 */
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_CUSTOMER);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ITEMS);
 
         onCreate(db);
     }
@@ -58,8 +58,9 @@ public class MyDBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         while (cursor.moveToNext()) {
+            String id = cursor.getString(0);
             String result_1 = cursor.getString(1);
-            result += result_1 + " ,";
+            result += "("+id+") " + result_1 + " ,";
         }
         cursor.close();
         db.close();
@@ -148,7 +149,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         values.put(T_ITEM_NAME, item.getItemName());
         values.put(T_ITEM_VAROS, item.getItemVaros());
         values.put(T_ITEM_TIMH, item.getItemPrice());
-        values.put(T_ITEM_KIBOTIO, item.getItemName());
+        values.put(T_ITEM_KIBOTIO, item.getItemKib());
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(TABLE_ITEMS, null, values);

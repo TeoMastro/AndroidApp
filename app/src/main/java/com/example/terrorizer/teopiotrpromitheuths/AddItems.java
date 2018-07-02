@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-public class proionta extends AppCompatActivity {
+public class AddItems extends AppCompatActivity {
     EditText onomaProiontos;
     EditText timhProiontos;
     EditText varosProiontos;
@@ -75,7 +75,7 @@ public class proionta extends AppCompatActivity {
         toast.show();
     }
     public void openDiaxeirhshProiontwn(){  //kaleitai mesw toy onClickListener
-        Intent diaxeirhshProiontwn = new Intent(this , EditProin.class);
+        Intent diaxeirhshProiontwn = new Intent(this , EditItems.class);
         startActivity(diaxeirhshProiontwn);
     }
 }

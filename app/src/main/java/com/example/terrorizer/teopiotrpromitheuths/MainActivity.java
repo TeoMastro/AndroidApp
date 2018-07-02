@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openOrder(){  //kaleitai mesw toy onClickListener
-        Intent order = new Intent(MainActivity.this , ShowPelates.class);
+        Intent order = new Intent(MainActivity.this , NewOrder.class);
         startActivity(order);
     }
 
@@ -94,12 +94,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openSimerinesParaggelies(){  //kaleitai mesw toy onClickListener
-        Intent pelatis = new Intent(MainActivity.this , simerinesParaggelies.class);
+        Intent pelatis = new Intent(MainActivity.this , OrdersToday.class);
         startActivity(pelatis);
     }
 
     public void openProionta(){  //kaleitai mesw toy onClickListener
-        Intent openProion = new Intent(MainActivity.this , proionta.class);
+        Intent openProion = new Intent(MainActivity.this , AddItems.class);
         startActivity(openProion);
     }
 

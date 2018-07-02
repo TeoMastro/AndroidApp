@@ -18,8 +18,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".AddPelates" />
         <activity android:name=".NewOrder" />
-        <activity android:name=".LoginScreen" />
-        <activity android:name=".simerinesParaggelies" />
+        <activity android:name=".OrdersToday" />
 
         <receiver android:name=".AlarmReceiver"
             tools:ignore="ExportedReceiver">
@@ -38,8 +37,8 @@
         <activity android:name=".ShowPelates" />
         <activity android:name=".ViewPelatisProfile" />
         <activity android:name=".EditPelates" />
-        <activity android:name=".proionta" />
-        <activity android:name=".EditProin"/>
+        <activity android:name=".AddItems" />
+        <activity android:name=".EditItems"/>
     </application>
 
 </manifest>

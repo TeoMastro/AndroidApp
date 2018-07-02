@@ -45,7 +45,9 @@ public class EditPelates extends AppCompatActivity {
                 PelatisAFM = (EditText) findViewById(R.id.AFMPelatiEdit);
                 PelatisDOI =  (EditText) findViewById(R.id.doiEdit);
                 PelatisTK = (EditText) findViewById(R.id.tkEdit);
-                int pid = parentView.getSelectedItemPosition() + 1;
+                String text = parentView.getSelectedItem().toString();
+                String qus = text.substring(text.indexOf("(") + 1, text.indexOf(")"));
+                int pid = Integer.parseInt(qus);
                 Customer customer = dbHandler.loadCustomer(pid);
                 if(customer != null){
                     PelatisName.setText(customer.getPelatisName());
