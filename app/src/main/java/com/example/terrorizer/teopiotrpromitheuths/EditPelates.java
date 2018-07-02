@@ -84,8 +84,9 @@ public class EditPelates extends AppCompatActivity {
     }
     public void updateCustomer(View view) {
         MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
-        int pid = My_spinner.getSelectedItemPosition() + 1;
-        PelatisName = (EditText) findViewById(R.id.onomaProiontosAdd);
+        String text = My_spinner.getSelectedItem().toString();
+        String qus = text.substring(text.indexOf("(") + 1, text.indexOf(")"));
+        int pid = Integer.parseInt(qus);
         String newname = PelatisName.getText().toString();
         String newadd = PelatisAdd.getText().toString();
         String newphone = PelatisThl.getText().toString();
