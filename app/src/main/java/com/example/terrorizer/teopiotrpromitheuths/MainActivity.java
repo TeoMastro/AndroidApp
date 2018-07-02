@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openProionta(){  //kaleitai mesw toy onClickListener
-        Intent openProion = new Intent(MainActivity.this , AddItems.class);
+        Intent openProion = new Intent(MainActivity.this , showItems.class);
         startActivity(openProion);
     }
 

@@ -20,7 +20,8 @@
         <activity android:name=".NewOrder" />
         <activity android:name=".OrdersToday" />
 
-        <receiver android:name=".AlarmReceiver"
+        <receiver
+            android:name=".AlarmReceiver"
             tools:ignore="ExportedReceiver">
             <intent-filter>
                 <action android:name="singh.ajit.action.DISPLAY_NOTIFICATION" />
@@ -38,7 +39,8 @@
         <activity android:name=".ViewPelatisProfile" />
         <activity android:name=".EditPelates" />
         <activity android:name=".AddItems" />
-        <activity android:name=".EditItems"/>
+        <activity android:name=".EditItems" />
+        <activity android:name=".showItems"></activity>
     </application>
 
 </manifest>

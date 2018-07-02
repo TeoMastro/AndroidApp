@@ -19,7 +19,7 @@ public class AddItems extends AppCompatActivity {
     EditText kibProiontos;
     LinearLayout mainLayout;
     Button prosthikiProiontwn;
-    Button diaxhrhshProiontwn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +33,7 @@ public class AddItems extends AppCompatActivity {
                 addProion();
             }
         });
-        diaxhrhshProiontwn = (Button)findViewById(R.id.diaxeirhProiontonEdit);
-        diaxhrhshProiontwn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openDiaxeirhshProiontwn();
-            }
-        });
+
     }
 
     public void addProion(){
@@ -74,8 +68,5 @@ public class AddItems extends AppCompatActivity {
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
     }
-    public void openDiaxeirhshProiontwn(){  //kaleitai mesw toy onClickListener
-        Intent diaxeirhshProiontwn = new Intent(this , EditItems.class);
-        startActivity(diaxeirhshProiontwn);
-    }
+
 }
