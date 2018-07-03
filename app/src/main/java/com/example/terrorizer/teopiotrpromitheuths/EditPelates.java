@@ -30,7 +30,7 @@ public class EditPelates extends AppCompatActivity {
         My_spinner = (Spinner) findViewById(R.id.Spinner1);
         ArrayList<String> my_array;
         my_array = getTableValues();
-        final ArrayAdapter<String> my_Adapter = new ArrayAdapter<String>(this, R.layout.spinner_row, my_array);
+        final ArrayAdapter<String> my_Adapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, my_array);
         My_spinner.setAdapter(my_Adapter);
 
 
@@ -98,9 +98,11 @@ public class EditPelates extends AppCompatActivity {
         if (result) {
             Toast.makeText(this, "UPDATE",
                     Toast.LENGTH_LONG).show();
-        } else
+        } else {
             Toast.makeText(this, "NOT FOUND",
                     Toast.LENGTH_LONG).show();
+        }
+        finish();
     }
 
 }

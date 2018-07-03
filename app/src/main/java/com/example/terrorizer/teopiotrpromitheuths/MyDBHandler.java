@@ -27,13 +27,21 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public static final String T_ITEM_VAROS = "itemVaros";
     public static final String T_ITEM_TIMH = "itemTimh";
     public static final String T_ITEM_KIBOTIO = "itemKib";
+    /*                 ---------Define ORDERS Var---------------                 */
+    public static final String ORDERS_TABLE = "Orders";
+    public static final String T_ORDER_ID = "orderID";
+    public static final String T_ORDER_QTY = "qty";
+    public static final String T_ORDER_DATE = "orderDate";
     /*                 ---------Create Customer---------------                 */
     private static final String CREATE_TABLE_CUSTOMER = "CREATE TABLE if not exists " + TABLE_CUSTOMER + " (" + T_PELATIS_ID +
             " INTEGER PRIMARY KEY AUTOINCREMENT," + T_PELATIS_NAME + " TEXT, " + T_PELATIS_ADDRESS + " TEXT, " + T_PELATIS_PHONE +
             " TEXT, " + T_PELATIS_AFM + " TEXT, " + T_PELATIS_JOB + " TEXT, " + T_PELATIS_DOI + " TEXT, " + T_PELATIS_TK + " TEXT )";
 
     private static final String CREATE_TABLE_ITEMS = "CREATE TABLE if not exists " + TABLE_ITEMS + " (" + T_ITEM_ID + " INTEGER PRIMARY KEY AUTOINCREMENT ," + T_ITEM_NAME +
-            " TEXT ," + T_ITEM_TIMH + " TEXT, " + T_ITEM_VAROS + " TEXT, " + T_ITEM_KIBOTIO + "TEXT )";
+            " TEXT ," + T_ITEM_TIMH + " TEXT, " + T_ITEM_VAROS + " TEXT, " + T_ITEM_KIBOTIO + " TEXT )";
+
+    private static final String CREATE_TABLE_ORDERS = "CREATE TABLE if not exists " + ORDERS_TABLE + " (" + T_ORDER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT ," + T_PELATIS_ID +
+            " INTEGER ," + T_ITEM_ID + " INTEGER , " + T_ORDER_QTY + " INTEGER , " + T_ORDER_DATE + " TEXT )";
     /*                 ----------Create Items---------------                 */
     //initialize the database
     public MyDBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -43,11 +51,13 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE_CUSTOMER);
         db.execSQL(CREATE_TABLE_ITEMS);
+        db.execSQL(CREATE_TABLE_ORDERS);
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_CUSTOMER);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_ITEMS);
+        db.execSQL("DROP TABLE IF EXISTS " + ORDERS_TABLE);
 
         onCreate(db);
     }
@@ -73,8 +83,9 @@ public class MyDBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         while (cursor.moveToNext()) {
+            String id = cursor.getString(0);
             String result_1 = cursor.getString(1);
-            result += result_1 + " ,";
+            result += "("+id+") " + result_1 + " ,";
         }
         cursor.close();
         db.close();
@@ -217,6 +228,76 @@ public class MyDBHandler extends SQLiteOpenHelper {
         args.put(T_ITEM_VAROS, varos);
         args.put(T_ITEM_KIBOTIO, kibotio);
         return db.update(TABLE_ITEMS, args, T_ITEM_ID + " = " + ID, null) > 0;
+    }
+
+    public void addOrder(Orders order){
+        ContentValues values = new ContentValues();
+
+        values.put(T_PELATIS_ID, order.getPelatisID());
+        values.put(T_ITEM_ID, order.getItemID());
+        values.put(T_ORDER_QTY, order.getQty());
+        values.put(T_ORDER_DATE, order.getDate());
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.insert(ORDERS_TABLE, null, values);
+        db.close();
+    }
+
+    public Orders loadOrderByDate(String pdate) {
+        String query = "Select * FROM Orders WHERE date = '" + pdate +"'";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        Orders order = new Orders();
+        if( cursor != null && cursor.moveToFirst() ) {
+            cursor.moveToFirst();
+            order.setOrderID(Integer.parseInt(cursor.getString(0)));
+            order.setPelatisID(Integer.parseInt(cursor.getString(1)));
+            order.setItemID(Integer.parseInt(cursor.getString(2)));
+            order.setQty(Integer.parseInt(cursor.getString(3)));
+            order.setDate(cursor.getString(4));
+            cursor.close();
+            db.close();
+            return order;
+        } else {
+            db.close();
+            return order = null;
+        }
+    }
+
+    public Orders loadOrderByCustomer(int cid) {
+        String query = "Select * FROM Orders WHERE pelatisID = '" + cid +"'";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        Orders order = new Orders();
+        if( cursor != null && cursor.moveToFirst() ) {
+            cursor.moveToFirst();
+            order.setOrderID(Integer.parseInt(cursor.getString(0)));
+            order.setPelatisID(Integer.parseInt(cursor.getString(1)));
+            order.setItemID(Integer.parseInt(cursor.getString(2)));
+            order.setQty(Integer.parseInt(cursor.getString(3)));
+            order.setDate(cursor.getString(4));
+            cursor.close();
+            db.close();
+            return order;
+        } else {
+            db.close();
+            return order = null;
+        }
+    }
+
+    public String loadAllOrders() {
+        String result = "";
+        String query = "Select * FROM " + ORDERS_TABLE;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        while (cursor.moveToNext()) {
+            String id = cursor.getString(0);
+            String result_1 = cursor.getString(4);
+            result += "("+id+") " + result_1 + " ,";
+        }
+        cursor.close();
+        db.close();
+        return result;
     }
 
 }

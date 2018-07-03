@@ -1,9 +1,8 @@
 package com.example.terrorizer.teopiotrpromitheuths;
 
 import android.content.Context;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -48,18 +47,23 @@ public class AddItems extends AppCompatActivity {
         String varos = varosProiontos.getText().toString();
         String kib = kibProiontos.getText().toString();
 
-        Items item = new Items(onoma , timh , varos , kib);
-        dbHandler.addItem(item);
-        onomaProiontos.setText("");
-        timhProiontos.setText("");
-        varosProiontos.setText("");
-        kibProiontos.setText("");
+        if (onoma.matches("") || timh.matches("") || varos.matches("") || kib.matches("")) {
+            Toast.makeText(this, "Έχει κενά πεδία", Toast.LENGTH_SHORT).show();
+            return;
+        }else {
 
-        mainLayout = (LinearLayout)findViewById(R.id.linearButtonAddProion);
-        MessageBox("Το προιόν " + onoma + " προσθέθηκε με επιτυχία! \n Αν θέλετε μπορείτε να προσθέσετε καινούργιο προιόν");
-        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(mainLayout.getWindowToken(), 0);
+            Items item = new Items(onoma, timh, varos, kib);
+            dbHandler.addItem(item);
+            onomaProiontos.setText("");
+            timhProiontos.setText("");
+            varosProiontos.setText("");
+            kibProiontos.setText("");
 
+            mainLayout = (LinearLayout) findViewById(R.id.linearButtonAddProion);
+            MessageBox("Το προιόν " + onoma + " προσθέθηκε με επιτυχία! \n Αν θέλετε μπορείτε να προσθέσετε καινούργιο προιόν");
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(mainLayout.getWindowToken(), 0);
+        }
     }
 
     public void MessageBox(String message)

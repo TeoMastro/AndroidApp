@@ -12,7 +12,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class showItems extends AppCompatActivity {
-    MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
+    MyDBHandler dbHandler = new MyDBHandler(this, null, null, 2);
     ListView mListView;
     Button addItem;
     Button editItem;

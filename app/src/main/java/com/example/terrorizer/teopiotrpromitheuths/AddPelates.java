@@ -53,21 +53,29 @@ public class AddPelates extends AppCompatActivity {
         String doi = doipelati.getText().toString();
         String job = jobpelati.getText().toString();
         String tk = tkpelati.getText().toString();
+        if (name.matches("") || address.matches("") || thl.matches("") || afm.matches("") || doi.matches("") || job.matches("") || tk.matches("")) {
+            Toast.makeText(this, "Έχει κενά πεδία", Toast.LENGTH_SHORT).show();
+            return;
+        }else {
 
-        Customer customer = new Customer(name,address,thl,afm,job,doi,tk);
-        dbHandler.addCustomer(customer);
-        onomapelati.setText("");
-        addresspelati.setText("");
-        thlpelati.setText("");
-        afmpelati.setText("");
-        jobpelati.setText("");
-        doipelati.setText("");
-        tkpelati.setText("");
+            Customer customer = new Customer(name, address, thl, afm, job, doi, tk);
+            dbHandler.addCustomer(customer);
+            onomapelati.setText("");
+            addresspelati.setText("");
+            thlpelati.setText("");
+            afmpelati.setText("");
+            jobpelati.setText("");
+            doipelati.setText("");
+            tkpelati.setText("");
+
 
         mainLayout = (LinearLayout)findViewById(R.id.linearAddBtn);
         MessageBox("Ο Πελάτης " + name + " προσθέθηκε με επιτυχία! \n Αν θέλετε μπορείτε να προσθέσετε καινουργιο πελάτη");
         InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(mainLayout.getWindowToken(), 0);
+
+        finish();
+        }
     }
 
     public void MessageBox(String message)
