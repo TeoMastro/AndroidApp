@@ -11,7 +11,7 @@ public class ViewPelatisProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_pelatis_profile);
 
-        name = (TextView) findViewById(R.id.onoma);
+        name = (TextView) findViewById(R.id.namePelati);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null)
