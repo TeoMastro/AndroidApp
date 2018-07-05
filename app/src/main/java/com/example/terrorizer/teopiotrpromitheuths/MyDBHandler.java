@@ -6,6 +6,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+import static android.content.ContentValues.TAG;
 
 public class MyDBHandler extends SQLiteOpenHelper {
     //information of database
@@ -31,6 +38,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
     public static final String ORDERS_TABLE = "Orders";
     public static final String T_ORDER_ID = "orderID";
     public static final String T_ORDER_QTY = "qty";
+    public static final String T_ORDER_ACTKIB = "itemActKib";
     public static final String T_ORDER_DATE = "orderDate";
     /*                 ---------Create Customer---------------                 */
     private static final String CREATE_TABLE_CUSTOMER = "CREATE TABLE if not exists " + TABLE_CUSTOMER + " (" + T_PELATIS_ID +
@@ -38,10 +46,10 @@ public class MyDBHandler extends SQLiteOpenHelper {
             " TEXT, " + T_PELATIS_AFM + " TEXT, " + T_PELATIS_JOB + " TEXT, " + T_PELATIS_DOI + " TEXT, " + T_PELATIS_TK + " TEXT )";
 
     private static final String CREATE_TABLE_ITEMS = "CREATE TABLE if not exists " + TABLE_ITEMS + " (" + T_ITEM_ID + " INTEGER PRIMARY KEY AUTOINCREMENT ," + T_ITEM_NAME +
-            " TEXT ," + T_ITEM_TIMH + " TEXT, " + T_ITEM_VAROS + " TEXT, " + T_ITEM_KIBOTIO + " TEXT )";
+            " TEXT ," + T_ITEM_TIMH + " DOUBLE , " + T_ITEM_VAROS + " TEXT , " + T_ITEM_KIBOTIO + " INTEGER )";
 
     private static final String CREATE_TABLE_ORDERS = "CREATE TABLE if not exists " + ORDERS_TABLE + " (" + T_ORDER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT ," + T_PELATIS_ID +
-            " INTEGER ," + T_ITEM_ID + " INTEGER , " + T_ORDER_QTY + " INTEGER , " + T_ORDER_DATE + " TEXT )";
+            " INTEGER ," + T_ITEM_ID + " INTEGER , " + T_ORDER_QTY + " INTEGER , " + T_ORDER_DATE + " TEXT , " + T_ORDER_ACTKIB + " INTEGER )";
     /*                 ----------Create Items---------------                 */
     //initialize the database
     public MyDBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -237,6 +245,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         values.put(T_ITEM_ID, order.getItemID());
         values.put(T_ORDER_QTY, order.getQty());
         values.put(T_ORDER_DATE, order.getDate());
+        values.put(T_ORDER_ACTKIB, order.getItemActKib());
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(ORDERS_TABLE, null, values);
@@ -282,6 +291,50 @@ public class MyDBHandler extends SQLiteOpenHelper {
         } else {
             db.close();
             return order = null;
+        }
+    }
+
+    public String TodayOrders(){
+
+        Date c = Calendar.getInstance().getTime();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+        String formattedDate = df.format(c);
+
+        String query = "SELECT Customer.pelatisName,Items.itemName,Orders.qty,Orders.itemActKib,Items.itemTimh,Items.ItemKib" +
+                " FROM (( Orders " +
+                " INNER JOIN Items ON Items.itemID = Orders.itemID)" +
+                " INNER JOIN Customer ON Customer.pelatisID = Orders.pelatisID)" +
+                " WHERE Orders.orderDate = '" + formattedDate + "'";
+
+        String result = "";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        if(cursor != null) {
+            while (cursor.moveToNext()) {
+                String pName = cursor.getString(0);
+                String iName = cursor.getString(1);
+                int qty = Integer.parseInt(cursor.getString(2));
+                int actkib = Integer.parseInt(cursor.getString(3));
+                double price = Double.parseDouble(cursor.getString(4));
+                int kibqty = Integer.parseInt(cursor.getString(5));
+
+                double finalprice = 0;
+                if(actkib==1){
+                    finalprice = price * kibqty;
+                }else{
+                    finalprice = price;
+                }
+
+                result += System.getProperty("line.separator") + pName + "    |    " + iName + "    |    " + String.valueOf(qty) + "    |    "  + String.valueOf(finalprice) + " ,";
+            }
+            Log.d(TAG, "TodayOrders: " + formattedDate);
+            cursor.close();
+            db.close();
+            return result;
+        } else{
+            result = null;
+            return result;
         }
     }
 

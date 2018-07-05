@@ -97,7 +97,8 @@
         <EditText
             android:id="@+id/VarosAdd"
             android:layout_width="344dp"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
     </LinearLayout>
 
     <LinearLayout
@@ -125,7 +126,8 @@
         <EditText
             android:id="@+id/TimhAdd"
             android:layout_width="344dp"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
     </LinearLayout>
 
     <LinearLayout
@@ -151,7 +153,8 @@
         <EditText
             android:id="@+id/KibAdd"
             android:layout_width="344dp"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="number" />
     </LinearLayout>
 
         <LinearLayout

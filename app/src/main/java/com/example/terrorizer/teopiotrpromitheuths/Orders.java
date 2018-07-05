@@ -6,18 +6,26 @@ public class Orders {
     private int pelatisID;
     private int itemID;
     private int qty;
+    private int itemActKib;
     private String date;
 
     // constructors
     public Orders() {}
-    public Orders(int pelatisid, int itemid, int qty, String date) {
+    public Orders(int pelatisid, int itemid, int qty, String date, int actkib) {
         super();
         this.pelatisID = pelatisid;
         this.itemID = itemid;
         this.qty = qty;
+        this.itemActKib = actkib;
         this.date = date;
     }
 
+    public int getItemActKib() {
+        return itemActKib;
+    }
+    public void setItemActKib(int itemActKib) {
+        this.itemActKib = itemActKib;
+    }
     public int getOrderID() {
         return OrderID;
     }
