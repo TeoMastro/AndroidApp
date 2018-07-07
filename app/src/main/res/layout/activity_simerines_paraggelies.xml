@@ -8,6 +8,47 @@
     tools:context=".OrdersToday">
 
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/TitleLinearTODAY">
+
+        <LinearLayout
+            android:id="@+id/fillValLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/TitleHeaderTODAY"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Σημερινές Παραγγελίες"
+                android:textColor="#0A0908"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/fill11"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp"
+                android:autoSizeMaxTextSize="100sp"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeStepGranularity="2sp"
+                android:autoSizeTextType="uniform"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+
     <LinearLayout
         android:id="@+id/TitleLinearTODAY"
         android:layout_width="match_parent"
@@ -22,39 +63,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/TitleHeaderTODAY"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="Σημερινές Παραγγελίες"
-            android:textColor="#0A0908"
-            android:textSize="30sp" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/fillValLinear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TitleLinearTODAY">
-
-        <TextView
-            android:id="@+id/fill11"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:autoSizeMaxTextSize="100sp"
-            android:autoSizeMinTextSize="12sp"
-            android:autoSizeStepGranularity="2sp"
-            android:autoSizeTextType="uniform"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-    </LinearLayout>
 </android.support.constraint.ConstraintLayout>
