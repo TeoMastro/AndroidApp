@@ -46,19 +46,22 @@ public class EditPelates extends AppCompatActivity {
                 PelatisDOI =  (EditText) findViewById(R.id.doiEdit);
                 PelatisTK = (EditText) findViewById(R.id.tkEdit);
                 String text = parentView.getSelectedItem().toString();
-                String qus = text.substring(text.indexOf("(") + 1, text.indexOf(")"));
-                int pid = Integer.parseInt(qus);
-                Customer customer = dbHandler.loadCustomer(pid);
-                if(customer != null){
-                    PelatisName.setText(customer.getPelatisName());
-                    PelatisJob.setText(customer.getPelatisJob());
-                    PelatisAdd.setText(customer.getPelatisAddress());
-                    PelatisThl.setText(customer.getPelatisPhone());
-                    PelatisAFM.setText(customer.getPelatisAFM());
-                    PelatisDOI.setText(customer.getPelatisDOI());
-                    PelatisTK.setText(customer.getPelatisTK());
-                } else {
-                    PelatisName.setText("NO MOFO FOUND");
+                if(text.matches("ΔΕΝ ΥΠΑΡΧΟΥΝ ΠΕΛΑΤΕΣ")) {
+                }else {
+                    String qus = text.substring(text.indexOf("(") + 1, text.indexOf(")"));
+                    int pid = Integer.parseInt(qus);
+                    Customer customer = dbHandler.loadCustomer(pid);
+                    if (customer != null) {
+                        PelatisName.setText(customer.getPelatisName());
+                        PelatisJob.setText(customer.getPelatisJob());
+                        PelatisAdd.setText(customer.getPelatisAddress());
+                        PelatisThl.setText(customer.getPelatisPhone());
+                        PelatisAFM.setText(customer.getPelatisAFM());
+                        PelatisDOI.setText(customer.getPelatisDOI());
+                        PelatisTK.setText(customer.getPelatisTK());
+                    } else {
+                        PelatisName.setText("NO MOFO FOUND");
+                    }
                 }
 
             }
@@ -74,33 +77,40 @@ public class EditPelates extends AppCompatActivity {
         MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
         ArrayList<String> my_array = new ArrayList<String>();
         String temp = dbHandler.loadAllCustomer().toString();
-        String qusChoice = temp.substring(0,temp.length() - 1);
-        String[] arrayList = qusChoice.split(",");
-        for (int i = 0; i < arrayList.length; i++) {
+        if(!temp.isEmpty()) {
+            String qusChoice = temp.substring(0, temp.length() - 1);
+            String[] arrayList = qusChoice.split(",");
+            for (int i = 0; i < arrayList.length; i++) {
 
-            my_array.add(arrayList[i]);
+                my_array.add(arrayList[i]);
+            }
+        }else{
+            my_array.add("ΔΕΝ ΥΠΑΡΧΟΥΝ ΠΕΛΑΤΕΣ");
         }
         return my_array;
     }
     public void updateCustomer(View view) {
         MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
         String text = My_spinner.getSelectedItem().toString();
-        String qus = text.substring(text.indexOf("(") + 1, text.indexOf(")"));
-        int pid = Integer.parseInt(qus);
-        String newname = PelatisName.getText().toString();
-        String newadd = PelatisAdd.getText().toString();
-        String newphone = PelatisThl.getText().toString();
-        String newafm = PelatisAFM.getText().toString();
-        String newjob = PelatisJob.getText().toString();
-        String newdoi = PelatisDOI.getText().toString();
-        String newtk = PelatisTK.getText().toString();
-        boolean result = dbHandler.updateCustomer(pid,newname,newadd,newphone,newafm,newjob,newdoi,newtk);
-        if (result) {
-            Toast.makeText(this, "UPDATE",
-                    Toast.LENGTH_LONG).show();
-        } else {
-            Toast.makeText(this, "NOT FOUND",
-                    Toast.LENGTH_LONG).show();
+        if(text.matches("ΔΕΝ ΥΠΑΡΧΟΥΝ ΠΕΛΑΤΕΣ")) {
+        }else {
+            String qus = text.substring(text.indexOf("(") + 1, text.indexOf(")"));
+            int pid = Integer.parseInt(qus);
+            String newname = PelatisName.getText().toString();
+            String newadd = PelatisAdd.getText().toString();
+            String newphone = PelatisThl.getText().toString();
+            String newafm = PelatisAFM.getText().toString();
+            String newjob = PelatisJob.getText().toString();
+            String newdoi = PelatisDOI.getText().toString();
+            String newtk = PelatisTK.getText().toString();
+            boolean result = dbHandler.updateCustomer(pid, newname, newadd, newphone, newafm, newjob, newdoi, newtk);
+            if (result) {
+                Toast.makeText(this, "UPDATE",
+                        Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "NOT FOUND",
+                        Toast.LENGTH_LONG).show();
+            }
         }
         finish();
     }

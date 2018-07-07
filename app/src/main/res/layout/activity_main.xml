@@ -10,7 +10,6 @@
     android:paddingRight="16dp"
     android:paddingTop="16dp"
     android:background="@color/ic_launcher_background"
-    android:backgroundTintMode="multiply"
     tools:context=".MainActivity">
 
 
@@ -27,7 +26,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@mipmap/background"
             tools:layout_editor_absoluteX="20dp"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints"
+            android:contentDescription="TODO" />
 
         <Button
             android:id="@+id/newOrder"
@@ -142,11 +142,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
+            android:minHeight="200dp"
+            android:minWidth="200dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="128dp"
+            android:layout_marginTop="172dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

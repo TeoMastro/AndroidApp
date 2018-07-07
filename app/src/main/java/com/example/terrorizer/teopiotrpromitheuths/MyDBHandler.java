@@ -46,7 +46,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
             " TEXT, " + T_PELATIS_AFM + " TEXT, " + T_PELATIS_JOB + " TEXT, " + T_PELATIS_DOI + " TEXT, " + T_PELATIS_TK + " TEXT )";
 
     private static final String CREATE_TABLE_ITEMS = "CREATE TABLE if not exists " + TABLE_ITEMS + " (" + T_ITEM_ID + " INTEGER PRIMARY KEY AUTOINCREMENT ," + T_ITEM_NAME +
-            " TEXT ," + T_ITEM_TIMH + " DOUBLE , " + T_ITEM_VAROS + " TEXT , " + T_ITEM_KIBOTIO + " INTEGER )";
+            " TEXT ," + T_ITEM_TIMH + " FLOAT , " + T_ITEM_VAROS + " TEXT , " + T_ITEM_KIBOTIO + " INTEGER )";
 
     private static final String CREATE_TABLE_ORDERS = "CREATE TABLE if not exists " + ORDERS_TABLE + " (" + T_ORDER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT ," + T_PELATIS_ID +
             " INTEGER ," + T_ITEM_ID + " INTEGER , " + T_ORDER_QTY + " INTEGER , " + T_ORDER_DATE + " TEXT , " + T_ORDER_ACTKIB + " INTEGER )";
@@ -125,25 +125,50 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
     }
 
-    public Items loadItems(int id){
+    public Items loadItems(int id) {
         String query = "Select * FROM Items WHERE itemID = '" + id +"'";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
-        Items item = new Items();
+        Items items = new Items();
         if( cursor != null && cursor.moveToFirst() ) {
             cursor.moveToFirst();
-            item.setItemID(Integer.parseInt(cursor.getString(0)));
-            item.setItemName(cursor.getString(1));
-            item.setItemPrice(cursor.getString(2));
-            item.setItemVaros(cursor.getString(3));
-            item.setItemKib(cursor.getString(4));
+            items.setItemID(Integer.parseInt(cursor.getString(0)));
+            items.setItemName(cursor.getString(1));
+            items.setItemVaros(cursor.getString(2));
+            items.setItemPrice(cursor.getString(3));
+            items.setItemKib(cursor.getString(4));
             cursor.close();
             db.close();
-            return item;
+            return items;
         } else {
             db.close();
-            return item = null;
+            return items = null;
         }
+
+    }
+
+    public Items[] loadItemsList(int id){
+        String query = "Select * FROM Items WHERE itemID = '" + id +"'";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        int cursize = cursor.getCount();
+        Items[] itemArray = new Items[cursize];
+        if( cursor != null && cursor.moveToFirst() ) {
+            for ( int i=0; i<itemArray.length; i++) {
+                itemArray[i] = new Items();
+                cursor.moveToFirst();
+                itemArray[i].setItemID(Integer.parseInt(cursor.getString(0)));
+                itemArray[i].setItemName(cursor.getString(1));
+                itemArray[i].setItemPrice(cursor.getString(2));
+                itemArray[i].setItemVaros(cursor.getString(3));
+                itemArray[i].setItemKib(cursor.getString(4));
+                cursor.close();
+                db.close();
+            }
+        } else {
+            db.close();
+        }
+        return itemArray;
     }
 
     public void addCustomer(Customer customer) {
@@ -177,7 +202,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
     public boolean deleteCustomer(int ID) {
         boolean result = false;
-        String query = "Select * FROM" + TABLE_CUSTOMER + "WHERE" + T_PELATIS_ID + "= '" + String.valueOf(ID) + "'";
+        String query = "Select * FROM " + TABLE_CUSTOMER + " WHERE " + T_PELATIS_ID + " = '" + String.valueOf(ID) + "'";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         Customer customer = new Customer();
@@ -196,7 +221,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
     public boolean deleteItem(int ID){
         boolean result = false;
-        String query = "Select * FROM" + TABLE_ITEMS + "WHERE" + T_ITEM_ID + "= '" + String.valueOf(ID) + "'";
+        String query = "Select * FROM " + TABLE_ITEMS + " WHERE " + T_ITEM_ID + " = '" + String.valueOf(ID) + "'";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         Items item = new Items();
@@ -273,25 +298,20 @@ public class MyDBHandler extends SQLiteOpenHelper {
         }
     }
 
-    public Orders loadOrderByCustomer(int cid) {
-        String query = "Select * FROM Orders WHERE pelatisID = '" + cid +"'";
+    public String loadOrderByItem(int cid){
+        String result = "";
+        String query = "Select Customer.pelatisName, Orders.qty, Orders.orderDate FROM Orders INNER JOIN Customer ON Customer.pelatisID = Orders.pelatisID WHERE Orders.itemID = " + cid + " LIMIT 20 ";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
-        Orders order = new Orders();
-        if( cursor != null && cursor.moveToFirst() ) {
-            cursor.moveToFirst();
-            order.setOrderID(Integer.parseInt(cursor.getString(0)));
-            order.setPelatisID(Integer.parseInt(cursor.getString(1)));
-            order.setItemID(Integer.parseInt(cursor.getString(2)));
-            order.setQty(Integer.parseInt(cursor.getString(3)));
-            order.setDate(cursor.getString(4));
-            cursor.close();
-            db.close();
-            return order;
-        } else {
-            db.close();
-            return order = null;
+        while (cursor.moveToNext()) {
+            String name = cursor.getString(0);
+            String qty = cursor.getString(1);
+            String date = cursor.getString(2);
+            result += name + " - " + qty + " - " + date + " ,";
         }
+        cursor.close();
+        db.close();
+        return result;
     }
 
     public String TodayOrders(){
@@ -316,19 +336,30 @@ public class MyDBHandler extends SQLiteOpenHelper {
                 String iName = cursor.getString(1);
                 int qty = Integer.parseInt(cursor.getString(2));
                 int actkib = Integer.parseInt(cursor.getString(3));
-                double price = Double.parseDouble(cursor.getString(4));
+                float price = Float.parseFloat(cursor.getString(4));
                 int kibqty = Integer.parseInt(cursor.getString(5));
 
                 double finalprice = 0;
                 if(actkib==1){
-                    finalprice = price * kibqty;
+                    finalprice = (price * kibqty) * qty;
                 }else{
-                    finalprice = price;
+                    finalprice = price * qty;
                 }
-
-                result += System.getProperty("line.separator") + pName + "    |    " + iName + "    |    " + String.valueOf(qty) + "    |    "  + String.valueOf(finalprice) + " ,";
+                String printfinalp = String.format("%.02f", finalprice);
+                Log.d(TAG, "TodayOrders: " + formattedDate + " " + printfinalp);
+                if(actkib==1) {
+                    result += System.getProperty("line.separator") + "Όνομα πελάτη: " +  pName + System.getProperty("line.separator")
+                            + "Προϊόν: " + iName + System.getProperty("line.separator")
+                            + "Ποσότητα: " + String.valueOf(qty) + " Κιβ." + System.getProperty("line.separator")
+                            + "Συνολική Τιμή: " + printfinalp + " € ,";
+                }else{
+                    result += System.getProperty("line.separator") + "Όνομα πελάτη: " +  pName + System.getProperty("line.separator")
+                            + "Προϊόν: " + iName + System.getProperty("line.separator")
+                            + "Ποσότητα: " + String.valueOf(qty) + " Κιβ." + System.getProperty("line.separator")
+                            + "Συνολική Τιμή: " + printfinalp + " € ,";
+                }
             }
-            Log.d(TAG, "TodayOrders: " + formattedDate);
+
             cursor.close();
             db.close();
             return result;

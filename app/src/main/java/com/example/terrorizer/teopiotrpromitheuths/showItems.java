@@ -30,7 +30,7 @@ public class showItems extends AppCompatActivity {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long mylng) {
-                Intent intent = new Intent(showItems.this,ViewPelatisProfile.class);
+                Intent intent = new Intent(showItems.this,ViewItemProfile.class);
                 String name =(mListView.getItemAtPosition(pos).toString());
                 intent.putExtra("name", name);
                 startActivity(intent);
@@ -48,6 +48,10 @@ public class showItems extends AppCompatActivity {
                 EditItem();
             }
         });
+    }
+    public void onResume() {
+        super.onResume();
+        loadItem();
     }
 
     public void loadItem() {

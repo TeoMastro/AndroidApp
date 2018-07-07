@@ -49,6 +49,10 @@ public class ShowPelates extends AppCompatActivity {
             }
         });
     }
+    public void onResume() {
+        super.onResume();
+        loadCustomer();
+    }
 
     public void loadCustomer() {
         String temp = dbHandler.loadAllCustomer().toString();
