@@ -218,7 +218,7 @@
         <LinearLayout
             android:id="@+id/linearLayout4"
             android:layout_width="wrap_content"
-            android:layout_height="250dp"
+            android:layout_height="200dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
@@ -242,7 +242,7 @@
             android:id="@+id/linearLayout3"
             android:layout_width="wrap_content"
             android:layout_height="61dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="16dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -259,6 +259,7 @@
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:background="#2D3142"
+                android:onClick="removeCustomer"
                 android:text="Διαγραφη Πελατη"
                 android:textColor="#FFFFFF" />
         </LinearLayout>

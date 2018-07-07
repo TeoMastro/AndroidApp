@@ -300,14 +300,42 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
     public String loadOrderByItem(int cid){
         String result = "";
-        String query = "Select Customer.pelatisName, Orders.qty, Orders.orderDate FROM Orders INNER JOIN Customer ON Customer.pelatisID = Orders.pelatisID WHERE Orders.itemID = " + cid + " LIMIT 20 ";
+        String query = "Select Customer.pelatisName, Orders.qty, Orders.orderDate, Orders.itemActKib FROM Orders INNER JOIN Customer ON " +
+                "Customer.pelatisID = Orders.pelatisID WHERE Orders.itemID = " + cid + " LIMIT 20 ";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         while (cursor.moveToNext()) {
             String name = cursor.getString(0);
             String qty = cursor.getString(1);
             String date = cursor.getString(2);
-            result += name + " - " + qty + " - " + date + " ,";
+            int actkib = Integer.parseInt(cursor.getString(3));
+            if(actkib==1) {
+                result += name + " - " + qty + " Κιβ. - " + date + " ,";
+            }else{
+                result += name + " - " + qty + " - " + date + " ,";
+            }
+        }
+        cursor.close();
+        db.close();
+        return result;
+    }
+
+    public String loadOrderByCustomer(int cid){
+        String result = "";
+        String query = "Select Items.itemName, Orders.qty, Orders.orderDate, Orders.itemActKib FROM Orders INNER JOIN Items ON " +
+                "Items.itemID = Orders.itemID WHERE Orders.pelatisID = " + cid + " LIMIT 20 ";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        while (cursor.moveToNext()) {
+            String name = cursor.getString(0);
+            String qty = cursor.getString(1);
+            String date = cursor.getString(2);
+            int actkib = Integer.parseInt(cursor.getString(3));
+            if(actkib==1) {
+                result += name + " - " + qty + " Κιβ. - " + date + " ,";
+            }else{
+                result += name + " - " + qty + " - " + date + " ,";
+            }
         }
         cursor.close();
         db.close();
@@ -355,7 +383,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
                 }else{
                     result += System.getProperty("line.separator") + "Όνομα πελάτη: " +  pName + System.getProperty("line.separator")
                             + "Προϊόν: " + iName + System.getProperty("line.separator")
-                            + "Ποσότητα: " + String.valueOf(qty) + " Κιβ." + System.getProperty("line.separator")
+                            + "Ποσότητα: " + String.valueOf(qty) + System.getProperty("line.separator")
                             + "Συνολική Τιμή: " + printfinalp + " € ,";
                 }
             }
