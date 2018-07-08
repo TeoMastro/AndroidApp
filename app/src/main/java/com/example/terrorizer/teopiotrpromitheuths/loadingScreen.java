@@ -23,7 +23,7 @@ public class loadingScreen extends AppCompatActivity {
                 try {
                     for(int i=0;i<100;i++) {
                         progressBar.setProgress(i);
-                        sleep(40);
+                        sleep(10);
                         //super.run();
                         //sleep(5000);
                     }

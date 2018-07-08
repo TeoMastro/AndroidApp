@@ -10,6 +10,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.TableRow;
 import android.widget.TextView;
 
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        CalendarView calendarView=(CalendarView) findViewById(R.id.calendarView2);
         newOrder = (Button)findViewById(R.id.newOrder);  //edw kanw to button na fortwnei allo activity
         newOrder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +82,22 @@ public class MainActivity extends AppCompatActivity {
         cal.set(Calendar.HOUR_OF_DAY,10);
         cal.set(Calendar.MINUTE,56);
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),AlarmManager.INTERVAL_DAY, broadcast);
+
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month,
+                                            int dayOfMonth) {
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(year,month,dayOfMonth);
+                Date c = calendar.getTime();
+                SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+                String formattedDate = df.format(c);
+                Intent intent = new Intent(MainActivity.this, orderbydate.class);
+                intent.putExtra("date",formattedDate);
+                startActivity(intent);
+            }
+        });
     }
 
     public void openOrder(){  //kaleitai mesw toy onClickListener

@@ -19,10 +19,10 @@ public class AlarmReceiver extends BroadcastReceiver {
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onReceive(Context context, Intent intent) {
-        Intent notificationIntent = new Intent(context, MainActivity.class);
+        Intent notificationIntent = new Intent(context, OrdersToday.class);
 
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
-        stackBuilder.addParentStack(MainActivity.class);
+        stackBuilder.addParentStack(OrdersToday.class);
         stackBuilder.addNextIntent(notificationIntent);
 
         PendingIntent pendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -30,8 +30,8 @@ public class AlarmReceiver extends BroadcastReceiver {
         Notification.Builder builder = new Notification.Builder(context);
 
 
-        Notification notification = builder.setContentTitle("Καλημέρα")
-                .setContentText("Ώρα να πάτε για δουλειά")
+        Notification notification = builder.setContentTitle("Stock Manager - Κατωμερίτης")
+                .setContentText("Ελέγξτε τις σημερινές παραγγελίες σας!κα")
                 .setTicker("Νέο μήνυμα")
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentIntent(pendingIntent).build();

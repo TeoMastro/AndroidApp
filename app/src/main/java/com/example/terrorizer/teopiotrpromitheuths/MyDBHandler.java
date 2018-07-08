@@ -277,25 +277,47 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    public Orders loadOrderByDate(String pdate) {
-        String query = "Select * FROM Orders WHERE date = '" + pdate +"'";
+    public String loadOrderByDate(String pdate) {
+        String result = "";
+        String query = "SELECT Customer.pelatisName,Items.itemName,Orders.qty,Orders.itemActKib,Items.itemTimh,Items.ItemKib" +
+                " FROM (( Orders " +
+                " INNER JOIN Items ON Items.itemID = Orders.itemID)" +
+                " INNER JOIN Customer ON Customer.pelatisID = Orders.pelatisID)" +
+                " WHERE Orders.orderDate = '" + pdate + "'";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
-        Orders order = new Orders();
-        if( cursor != null && cursor.moveToFirst() ) {
-            cursor.moveToFirst();
-            order.setOrderID(Integer.parseInt(cursor.getString(0)));
-            order.setPelatisID(Integer.parseInt(cursor.getString(1)));
-            order.setItemID(Integer.parseInt(cursor.getString(2)));
-            order.setQty(Integer.parseInt(cursor.getString(3)));
-            order.setDate(cursor.getString(4));
-            cursor.close();
-            db.close();
-            return order;
-        } else {
-            db.close();
-            return order = null;
+        if(cursor.getCount() >= 1) {
+            while (cursor.moveToNext()) {
+                String pName = cursor.getString(0);
+                String iName = cursor.getString(1);
+                int qty = Integer.parseInt(cursor.getString(2));
+                int actkib = Integer.parseInt(cursor.getString(3));
+                float price = Float.parseFloat(cursor.getString(4));
+                int kibqty = Integer.parseInt(cursor.getString(5));
+                double finalprice = 0;
+                if (actkib == 1) {
+                    finalprice = (price * kibqty) * qty;
+                } else {
+                    finalprice = price * qty;
+                }
+                String printfinalp = String.format("%.02f", finalprice);
+                Log.d(TAG, "TodayOrders: " + pdate + " " + printfinalp);
+                if (actkib == 1) {
+                    result += System.getProperty("line.separator") + "Όνομα πελάτη: " + pName + System.getProperty("line.separator")
+                            + "Προϊόν: " + iName + System.getProperty("line.separator")
+                            + "Ποσότητα: " + String.valueOf(qty) + " Κιβ." + System.getProperty("line.separator")
+                            + "Συνολική Τιμή: " + printfinalp + " € ,";
+                } else {
+                    result += System.getProperty("line.separator") + "Όνομα πελάτη: " + pName + System.getProperty("line.separator")
+                            + "Προϊόν: " + iName + System.getProperty("line.separator")
+                            + "Ποσότητα: " + String.valueOf(qty) + System.getProperty("line.separator")
+                            + "Συνολική Τιμή: " + printfinalp + " € ,";
+                }
+            }
         }
+        cursor.close();
+        db.close();
+        return result;
     }
 
     public String loadOrderByItem(int cid){
@@ -397,19 +419,5 @@ public class MyDBHandler extends SQLiteOpenHelper {
         }
     }
 
-    public String loadAllOrders() {
-        String result = "";
-        String query = "Select * FROM " + ORDERS_TABLE;
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(query, null);
-        while (cursor.moveToNext()) {
-            String id = cursor.getString(0);
-            String result_1 = cursor.getString(4);
-            result += "("+id+") " + result_1 + " ,";
-        }
-        cursor.close();
-        db.close();
-        return result;
-    }
 
 }

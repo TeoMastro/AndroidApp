@@ -23,7 +23,8 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="scalingPercent" value="65" />
+                                                <entry key="scalingPercent" value="102" />
+                                                <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -36,8 +37,8 @@
                                       <entry key="backgroundAssetType" value="COLOR" />
                                       <entry key="backgroundColor" value="f8f3e5" />
                                       <entry key="backgroundLayerName" value="ic_launcher_background" />
-                                      <entry key="foregroundImage" value="C:\Users\petros\Desktop\logo_katomeritis.png" />
-                                      <entry key="foregroundLayerName" value="ic_launcher_foreground" />
+                                      <entry key="foregroundImage" value="D:\Downloads\logo_katomeritis.png" />
+                                      <entry key="foregroundLayerName" value="logo" />
                                       <entry key="outputName" value="background" />
                                     </map>
                                   </option>
@@ -52,6 +53,11 @@
                 </map>
               </option>
             </PersistentState>
+          </value>
+        </entry>
+        <entry key="vectorWizard">
+          <value>
+            <PersistentState />
           </value>
         </entry>
       </map>

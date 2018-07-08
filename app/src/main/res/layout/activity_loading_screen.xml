@@ -7,39 +7,36 @@
     android:background="@color/ic_launcher_background"
     tools:context=".loadingScreen">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="210dp"
-        android:layout_height="184dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/background" />
-
     <ProgressBar
         android:id="@+id/progressBar"
         style="@style/MyProgressBarTwo"
-        android:layout_width="0dp"
+        android:layout_width="300dp"
         android:layout_height="90dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="36dp"
         android:progress="0"
         android:progressDrawable="@drawable/customprogressbar"
         android:secondaryProgress="60"
         android:theme="@style/MyProgressBarTwo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="368dp"
-        android:layout_height="257dp"
+        android:id="@+id/imageView3"
+        android:layout_width="321dp"
+        android:layout_height="228dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:srcCompat="@drawable/message" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.289"
+        app:srcCompat="@mipmap/logo" />
 
 </android.support.constraint.ConstraintLayout>

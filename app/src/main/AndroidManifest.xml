@@ -37,7 +37,8 @@
         <activity android:name=".AddItems" />
         <activity android:name=".EditItems" />
         <activity android:name=".ViewItemProfile" />
-        <activity android:name=".showItems"></activity>
+        <activity android:name=".orderbydate" />
+        <activity android:name=".showItems"/>
     </application>
 
 </manifest>
