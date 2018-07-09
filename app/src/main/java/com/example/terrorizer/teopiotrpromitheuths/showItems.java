@@ -64,7 +64,7 @@ public class showItems extends AppCompatActivity {
 
                 choiceList.add(arrayList[i]);
             }
-            ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, choiceList);
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.mytextview, choiceList);
             mListView.setAdapter(adapter);
         }else {
 

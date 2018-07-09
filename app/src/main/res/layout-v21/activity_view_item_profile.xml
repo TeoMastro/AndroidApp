@@ -25,6 +25,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,14 +45,15 @@
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
+            android:layout_marginLeft="40dp"
             android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
             app:layout_constraintEnd_toEndOf="parent"
@@ -74,14 +76,16 @@
                         android:layout_height="wrap_content"
                         android:text="Βάρος"
                         android:textAlignment="center"
-                        android:textColor="#0A0908" />
+                        android:textColor="#0A0908"
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/addFieldVal"
                         android:layout_width="313dp"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
-                        android:textColor="#0A0908" />
+                        android:textColor="#0A0908"
+                        android:textSize="18sp" />
                 </TableRow>
 
                 <TableRow
@@ -94,14 +98,16 @@
                         android:layout_height="wrap_content"
                         android:text="Τιμή"
                         android:textAlignment="center"
-                        android:textColor="#0A0908" />
+                        android:textColor="#0A0908"
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/phoneFieldVal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
-                        android:textColor="#0A0908" />
+                        android:textColor="#0A0908"
+                        android:textSize="18sp" />
                 </TableRow>
 
                 <TableRow
@@ -114,14 +120,16 @@
                         android:layout_height="wrap_content"
                         android:text="Τεμ / Κιβώτιο"
                         android:textAlignment="center"
-                        android:textColor="#0A0908" />
+                        android:textColor="#0A0908"
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/AFMFieldVal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
-                        android:textColor="#0A0908" />
+                        android:textColor="#0A0908"
+                        android:textSize="18sp" />
                 </TableRow>
 
             </TableLayout>
@@ -130,7 +138,7 @@
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="wrap_content"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
@@ -146,7 +154,7 @@
 
             <TextView
                 android:id="@+id/textView16"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Πρόσφατες Παραγγελίες"
@@ -156,8 +164,8 @@
 
         <LinearLayout
             android:id="@+id/linearLayout4"
-            android:layout_width="wrap_content"
-            android:layout_height="200dp"
+            android:layout_width="400dp"
+            android:layout_height="130dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"

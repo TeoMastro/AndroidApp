@@ -16,14 +16,6 @@
         <activity android:name=".NewOrder" />
         <activity android:name=".OrdersToday" />
 
-        <receiver
-            android:name=".AlarmReceiver"
-            tools:ignore="ExportedReceiver">
-            <intent-filter>
-                <action android:name="singh.ajit.action.DISPLAY_NOTIFICATION" />
-            </intent-filter>
-        </receiver>
-
         <activity android:name=".loadingScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -25,6 +25,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -52,6 +53,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
             app:layout_constraintEnd_toEndOf="parent"
@@ -60,13 +62,15 @@
 
             <TableLayout
                 android:id="@+id/tableAllOrdersProfile"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="8dp">
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/address"
@@ -74,19 +78,22 @@
                         android:layout_height="wrap_content"
                         android:text="Διεύθυνση"
                         android:textAlignment="center"
-                        android:textColor="#0A0908" />
+                        android:textColor="#0A0908"
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/addFieldVal"
                         android:layout_width="313dp"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
-                        android:textColor="#0A0908" />
+                        android:textColor="#0A0908"
+                        android:textSize="18sp" />
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/phone"
@@ -94,19 +101,22 @@
                         android:layout_height="wrap_content"
                         android:text="Τηλέφωνο"
                         android:textAlignment="center"
-                        android:textColor="#0A0908" />
+                        android:textColor="#0A0908"
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/phoneFieldVal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
-                        android:textColor="#0A0908" />
+                        android:textColor="#0A0908"
+                        android:textSize="18sp" />
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/AFM"
@@ -114,19 +124,22 @@
                         android:layout_height="wrap_content"
                         android:text="ΑΦΜ"
                         android:textAlignment="center"
-                        android:textColor="#0A0908" />
+                        android:textColor="#0A0908"
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/AFMFieldVal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
-                        android:textColor="#0A0908" />
+                        android:textColor="#0A0908"
+                        android:textSize="18sp" />
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/profession"
@@ -134,19 +147,22 @@
                         android:layout_height="wrap_content"
                         android:text="Επάγγελμα"
                         android:textAlignment="center"
-                        android:textColor="#0A0908" />
+                        android:textColor="#0A0908"
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/proffesionFieldVal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
-                        android:textColor="#0A0908" />
+                        android:textColor="#0A0908"
+                        android:textSize="18sp" />
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/doi"
@@ -154,19 +170,22 @@
                         android:layout_height="wrap_content"
                         android:text="ΔΟΙ"
                         android:textAlignment="center"
-                        android:textColor="#0A0908" />
+                        android:textColor="#0A0908"
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/doiFieldVal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
-                        android:textColor="#0A0908" />
+                        android:textColor="#0A0908"
+                        android:textSize="18sp" />
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/taxCode"
@@ -174,14 +193,16 @@
                         android:layout_height="wrap_content"
                         android:text="ΤΚ"
                         android:textAlignment="center"
-                        android:textColor="#0A0908" />
+                        android:textColor="#0A0908"
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/taxCodeFieldVal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
-                        android:textColor="#0A0908" />
+                        android:textColor="#0A0908"
+                        android:textSize="18sp" />
 
                 </TableRow>
 
@@ -191,13 +212,14 @@
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="wrap_content"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
             app:layout_constraintEnd_toEndOf="parent"
@@ -217,14 +239,15 @@
 
         <LinearLayout
             android:id="@+id/linearLayout4"
-            android:layout_width="wrap_content"
-            android:layout_height="200dp"
+            android:layout_width="400dp"
+            android:layout_height="130dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
             app:layout_constraintEnd_toEndOf="parent"
@@ -248,6 +271,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

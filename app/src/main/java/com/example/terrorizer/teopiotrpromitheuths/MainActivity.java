@@ -1,17 +1,11 @@
 package com.example.terrorizer.teopiotrpromitheuths;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
-import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -26,14 +20,13 @@ public class MainActivity extends AppCompatActivity {
     Button simerinesParaggelies;
     Button proionta;
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        CalendarView calendarView=(CalendarView) findViewById(R.id.calendarView2);
-        newOrder = (Button)findViewById(R.id.newOrder);  //edw kanw to button na fortwnei allo activity
+        CalendarView calendarView= findViewById(R.id.calendarView2);
+        newOrder = findViewById(R.id.newOrder);  //edw kanw to button na fortwnei allo activity
         newOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        pelatis = (Button)findViewById(R.id.newPelatis);  //edw kanw to button na fortwnei allo activity
+        pelatis = findViewById(R.id.newPelatis);  //edw kanw to button na fortwnei allo activity
         pelatis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        simerinesParaggelies= (Button) findViewById(R.id.ordersToday);
+        simerinesParaggelies= findViewById(R.id.ordersToday);
         simerinesParaggelies.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        proionta = (Button)findViewById(R.id.product);
+        proionta = findViewById(R.id.product);
         proionta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,19 +62,6 @@ public class MainActivity extends AppCompatActivity {
         String dateprint = new SimpleDateFormat("EEEE dd-MM-yyy",locale).format(date);
         TextView textViewDate = findViewById(R.id.date);
         textViewDate.setText(dateprint);
-
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-
-        Intent notificationIntent = new Intent(this, AlarmReceiver.class);
-        PendingIntent broadcast = PendingIntent.getBroadcast(this, 100, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        Calendar cal = Calendar.getInstance();
-        cal.setTimeInMillis(System.currentTimeMillis());
-        //cal.add(Calendar.HOUR_OF_DAY, 15);
-        //(int) AlarmManager.INTERVAL_DAY
-        cal.set(Calendar.HOUR_OF_DAY,10);
-        cal.set(Calendar.MINUTE,56);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),AlarmManager.INTERVAL_DAY, broadcast);
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
@@ -120,17 +100,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(openProion);
     }
 
-    public void addTableRow(){  //dynamikh dhmiourgia table rows
-        int arithmosShmerinwnParaggeliwn=2; //o shmerinos arithmos paraggeliwn
-        int i=0;
-        TableRow seira = new TableRow(this);
-        TextView team1 = new TextView(this);
-        TextView team2 = new TextView(this);
-        TextView team3 = new TextView(this);
-        //TableLayout table1 = (TableLayout)findViewById(table);
-        for(i=0;i<=arithmosShmerinwnParaggeliwn;i++){
-
-        }
-    }
 
 }
