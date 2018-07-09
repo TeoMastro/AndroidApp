@@ -81,19 +81,21 @@
                 <Button
                     android:id="@+id/AddItems"
                     android:layout_width="150dp"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginRight="6dp"
                     android:background="#2D3142"
                     android:text="Προσθηκη Προιοντος"
-                    android:textColor="#FFFFFF" />
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" />
 
                 <Button
                     android:id="@+id/EditItems"
                     android:layout_width="150dp"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
                     android:background="#2D3142"
                     android:text="Επεξεργασια προιοντος"
-                    android:textColor="#FFFFFF" />
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" />
 
             </LinearLayout>
         </LinearLayout>

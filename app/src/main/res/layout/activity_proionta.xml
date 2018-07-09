@@ -66,7 +66,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:labelFor="@id/onomaProiontosAdd"
-                android:text="Όνομα Προιόντος" />
+                android:text="Όνομα Προιόντος"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/onomaProiontosAdd"
@@ -91,7 +92,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:labelFor="@id/VarosAdd"
-                android:text="Βάρος Προιόντος" />
+                android:text="Βάρος Προιόντος"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/VarosAdd"
@@ -120,7 +122,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:labelFor="@id/TimhAdd"
-            android:text="Τιμή Προιόντος" />
+            android:text="Τιμή Προιόντος"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/TimhAdd"
@@ -147,7 +150,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:labelFor="@id/KibAdd"
-            android:text="Τεμάχια ανά κιβώτιο" />
+            android:text="Τεμάχια ανά κιβώτιο"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/KibAdd"
@@ -173,6 +177,7 @@
                 android:background="#2D3142"
                 android:text="Προσθηκη Προιοντος"
                 android:textColor="#FFFFFF"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -189,6 +194,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="40dp"
             android:text="ΓΡ/ΚΙΛΑ"
+            android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/linearThlEdit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

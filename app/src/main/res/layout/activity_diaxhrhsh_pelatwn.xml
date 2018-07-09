@@ -73,7 +73,7 @@
         <LinearLayout
             android:id="@+id/linearOnomaPelatiEdit"
             android:layout_width="wrap_content"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -89,7 +89,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:labelFor="@id/OnomaPelatiEdit"
-                android:text="Όνομα Πελάτη" />
+                android:text="Όνομα Πελάτη"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/OnomaPelatiEdit"
@@ -100,7 +101,7 @@
         <LinearLayout
             android:id="@+id/linearAddressEdit"
             android:layout_width="wrap_content"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -115,7 +116,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:labelFor="@id/AddressPelatiEdit"
-                android:text="Διεύθηνση" />
+                android:text="Διεύθηνση"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/AddressPelatiEdit"
@@ -126,7 +128,7 @@
         <LinearLayout
             android:id="@+id/linearThlEdit"
             android:layout_width="wrap_content"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="1dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
@@ -143,7 +145,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:labelFor="@id/ThlPelatiEdit"
-                android:text="Τηλέφωνο" />
+                android:text="Τηλέφωνο"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/ThlPelatiEdit"
@@ -154,7 +157,7 @@
         <LinearLayout
             android:id="@+id/linearAFMEdit"
             android:layout_width="wrap_content"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -169,7 +172,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:labelFor="@id/AFMPelatiEdit"
-                android:text="ΑΦΜ" />
+                android:text="ΑΦΜ"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/AFMPelatiEdit"
@@ -180,7 +184,7 @@
         <LinearLayout
             android:id="@+id/linearjobEdit"
             android:layout_width="wrap_content"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -195,7 +199,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:labelFor="@id/jobEdit"
-                android:text="Επάγγελμα" />
+                android:text="Επάγγελμα"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/jobEdit"
@@ -206,7 +211,7 @@
         <LinearLayout
             android:id="@+id/linearDOYEdit"
             android:layout_width="wrap_content"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -221,7 +226,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:labelFor="@id/doiEdit"
-                android:text="ΔΟΥ" />
+                android:text="ΔΟΥ"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/doiEdit"
@@ -233,7 +239,7 @@
         <LinearLayout
             android:id="@+id/lineartkEdit"
             android:layout_width="wrap_content"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -248,7 +254,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:labelFor="@id/tkEdit"
-                android:text="@string/tk" />
+                android:text="@string/tk"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/tkEdit"
@@ -274,6 +281,7 @@
                 android:onClick="updateCustomer"
                 android:text="ΕΦΑΡΜΟΓΗ"
                 android:textColor="#FFFFFF"
+                android:textSize="18sp"
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

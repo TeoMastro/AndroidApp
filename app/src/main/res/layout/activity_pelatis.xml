@@ -69,7 +69,8 @@
                 android:layout_height="wrap_content"
                 android:hint="Ονομα Πελάτη"
                 android:labelFor="@id/OnomaPelati"
-                android:text="Όνομα Πελάτη" />
+                android:text="Όνομα Πελάτη"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/OnomaPelati"
@@ -96,7 +97,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:labelFor="@id/AddressPelati"
-                android:text="Διεύθυνση" />
+                android:text="Διεύθυνση"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/AddressPelati"
@@ -125,7 +127,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:labelFor="@id/ThlPelati"
-                android:text="Τηλ." />
+                android:text="Τηλ."
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/ThlPelati"
@@ -152,7 +155,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:labelFor="@id/AFMPelati"
-                android:text="ΑΦΜ" />
+                android:text="ΑΦΜ"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/AFMPelati"
@@ -179,7 +183,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:labelFor="@id/JobPelati"
-                android:text="Επάγγελμα" />
+                android:text="Επάγγελμα"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/JobPelati"
@@ -206,7 +211,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:labelFor="@id/DOIpelati"
-                android:text="ΔΟΥ" />
+                android:text="ΔΟΥ"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/DOIpelati"
@@ -233,7 +239,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:labelFor="@id/TKPelati"
-                android:text="ΤΚ." />
+                android:text="ΤΚ."
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/TKPelati"
@@ -260,6 +267,7 @@
                 android:background="#2D3142"
                 android:text="Προσθηκη Πελάτη"
                 android:textColor="#FFFFFF"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />

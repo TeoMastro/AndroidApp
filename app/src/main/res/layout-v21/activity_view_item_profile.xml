@@ -208,7 +208,8 @@
                 android:background="#2D3142"
                 android:onClick="removeItem"
                 android:text="Διαγραφη"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
         </LinearLayout>
 
 

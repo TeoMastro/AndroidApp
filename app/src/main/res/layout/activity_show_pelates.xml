@@ -80,7 +80,7 @@
                 <Button
                     android:id="@+id/AddPelates"
                     android:layout_width="150dp"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginRight="6dp"
                     android:background="#2D3142"
                     android:text="Προσθηκη Πελατη"
@@ -89,7 +89,7 @@
                 <Button
                     android:id="@+id/EditPelates"
                     android:layout_width="150dp"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
                     android:background="#2D3142"
                     android:text="Επεξεργασια Πελατη"
                     android:textColor="#FFFFFF" />

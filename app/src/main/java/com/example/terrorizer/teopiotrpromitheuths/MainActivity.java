@@ -1,5 +1,7 @@
 package com.example.terrorizer.teopiotrpromitheuths;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +26,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //notificationSystem
+
+        Calendar calc = Calendar.getInstance();
+        calc.set(Calendar.HOUR_OF_DAY,15);
+        calc.set(Calendar.MINUTE,00);
+        calc.set(Calendar.SECOND,30);
+        if (calc.getTime().compareTo(new Date()) < 0) calc.add(Calendar.DAY_OF_MONTH, 1);
+
+        Intent intent = new Intent(getApplicationContext(),NotificationReciever.class);
+        intent.setAction("MY_NOTIFICATION_MESSAGE");
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(),100,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calc.getTimeInMillis(),AlarmManager.INTERVAL_DAY,pendingIntent);
 
         CalendarView calendarView= findViewById(R.id.calendarView2);
         newOrder = findViewById(R.id.newOrder);  //edw kanw to button na fortwnei allo activity

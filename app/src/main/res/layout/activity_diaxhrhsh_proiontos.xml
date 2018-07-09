@@ -25,7 +25,7 @@
     <LinearLayout
         android:id="@+id/linearOnomaPelatiEdit"
         android:layout_width="wrap_content"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -40,7 +40,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:labelFor="@id/onomaProiontosEdit"
-            android:text="Όνομα Προιόντος" />
+            android:text="Όνομα Προιόντος"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/onomaProiontosEdit"
@@ -51,7 +52,7 @@
     <LinearLayout
         android:id="@+id/linearAddressEdit"
         android:layout_width="wrap_content"
-        android:layout_height="66dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -66,7 +67,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:labelFor="@id/VarosEdit"
-            android:text="Βάρος Προιόντος" />
+            android:text="Βάρος Προιόντος"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/VarosEdit"
@@ -77,7 +79,7 @@
     <LinearLayout
         android:id="@+id/linearThlEdit"
         android:layout_width="wrap_content"
-        android:layout_height="65dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="1dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
@@ -94,7 +96,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:labelFor="@id/TimhEdit"
-            android:text="Τιμή Προιόντος" />
+            android:text="Τιμή Προιόντος"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/TimhEdit"
@@ -105,7 +108,7 @@
     <LinearLayout
         android:id="@+id/linearAFMEdit"
         android:layout_width="wrap_content"
-        android:layout_height="66dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -120,7 +123,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:labelFor="@id/KibEdit"
-            android:text="Τεμάχια ανά κιβώτιο" />
+            android:text="Τεμάχια ανά κιβώτιο"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/KibEdit"
@@ -143,9 +147,10 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:background="#2D3142"
-            android:text="Επεξεργασια Προιοντος"
             android:onClick="updateItem"
+            android:text="Επεξεργασια Προιοντος"
             android:textColor="#FFFFFF"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

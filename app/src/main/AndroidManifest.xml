@@ -3,19 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.terrorizer.teopiotrpromitheuths">
 
+    <uses-permission android:name="android.permission.SET_ALARM" />
 
     <application
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/launchericon"
         android:label="Stock Manager"
-        android:roundIcon="@mipmap/background"
+        android:roundIcon="@mipmap/launchericon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MainActivity" />
         <activity android:name=".AddPelates" />
         <activity android:name=".NewOrder" />
         <activity android:name=".OrdersToday" />
-
         <activity android:name=".loadingScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,6 +32,7 @@
         <activity android:name=".ViewItemProfile" />
         <activity android:name=".orderbydate" />
         <activity android:name=".showItems"/>
+        <receiver android:name=".NotificationReciever"/>
     </application>
 
 </manifest>

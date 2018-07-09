@@ -285,7 +285,8 @@
                 android:background="#2D3142"
                 android:onClick="removeCustomer"
                 android:text="Διαγραφη Πελατη"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
         </LinearLayout>
 
 

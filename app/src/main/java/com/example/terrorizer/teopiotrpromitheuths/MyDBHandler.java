@@ -306,12 +306,12 @@ public class MyDBHandler extends SQLiteOpenHelper {
                     result += System.getProperty("line.separator") + "Όνομα πελάτη: " + pName + System.getProperty("line.separator")
                             + "Προϊόν: " + iName + System.getProperty("line.separator")
                             + "Ποσότητα: " + String.valueOf(qty) + " Κιβ." + System.getProperty("line.separator")
-                            + "Συνολική Τιμή: " + printfinalp + " € ,";
+                            + "Συνολική Τιμή: " + printfinalp + " € /";
                 } else {
                     result += System.getProperty("line.separator") + "Όνομα πελάτη: " + pName + System.getProperty("line.separator")
                             + "Προϊόν: " + iName + System.getProperty("line.separator")
                             + "Ποσότητα: " + String.valueOf(qty) + System.getProperty("line.separator")
-                            + "Συνολική Τιμή: " + printfinalp + " € ,";
+                            + "Συνολική Τιμή: " + printfinalp + " € /";
                 }
             }
         }
@@ -332,9 +332,9 @@ public class MyDBHandler extends SQLiteOpenHelper {
             String date = cursor.getString(2);
             int actkib = Integer.parseInt(cursor.getString(3));
             if(actkib==1) {
-                result += name + " - " + qty + " Κιβ. - " + date + " ,";
+                result += name + " - " + qty + " Κιβ. - " + date + " /";
             }else{
-                result += name + " - " + qty + " - " + date + " ,";
+                result += name + " - " + qty + " - " + date + " /";
             }
         }
         cursor.close();
@@ -354,9 +354,9 @@ public class MyDBHandler extends SQLiteOpenHelper {
             String date = cursor.getString(2);
             int actkib = Integer.parseInt(cursor.getString(3));
             if(actkib==1) {
-                result += name + " - " + qty + " Κιβ. - " + date + " ,";
+                result += name + " - " + qty + " Κιβ. - " + date + " /";
             }else{
-                result += name + " - " + qty + " - " + date + " ,";
+                result += name + " - " + qty + " - " + date + " /";
             }
         }
         cursor.close();
@@ -401,12 +401,12 @@ public class MyDBHandler extends SQLiteOpenHelper {
                     result += System.getProperty("line.separator") + "Όνομα πελάτη: " +  pName + System.getProperty("line.separator")
                             + "Προϊόν: " + iName + System.getProperty("line.separator")
                             + "Ποσότητα: " + String.valueOf(qty) + " Κιβ." + System.getProperty("line.separator")
-                            + "Συνολική Τιμή: " + printfinalp + " € ,";
+                            + "Συνολική Τιμή: " + printfinalp + " € /";
                 }else{
                     result += System.getProperty("line.separator") + "Όνομα πελάτη: " +  pName + System.getProperty("line.separator")
                             + "Προϊόν: " + iName + System.getProperty("line.separator")
                             + "Ποσότητα: " + String.valueOf(qty) + System.getProperty("line.separator")
-                            + "Συνολική Τιμή: " + printfinalp + " € ,";
+                            + "Συνολική Τιμή: " + printfinalp + " € /";
                 }
             }
 

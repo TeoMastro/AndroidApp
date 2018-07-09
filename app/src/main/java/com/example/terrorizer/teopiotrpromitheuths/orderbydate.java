@@ -41,7 +41,7 @@ public class orderbydate extends AppCompatActivity {
         String temp = dbHandler.loadOrderByDate(date).toString();
         if(!temp.isEmpty()) {
             String qusChoice = temp.substring(0, temp.length() - 1);
-            String[] arrayList = qusChoice.split(",");
+            String[] arrayList = qusChoice.split("/");
             for (int i = 0; i < arrayList.length; i++) {
 
                 my_array.add(arrayList[i]);
