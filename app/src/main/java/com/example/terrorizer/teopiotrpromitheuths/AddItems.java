@@ -9,6 +9,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.Toast;
 
 public class AddItems extends AppCompatActivity {
@@ -52,12 +53,19 @@ public class AddItems extends AppCompatActivity {
             return;
         }else {
 
+            Switch s = (Switch) findViewById(R.id.switch1);
+            if(s.isChecked()){
+                varos = varos + " κιλά.";
+            }else{
+                varos = varos + " γρ.";
+            }
             Items item = new Items(onoma, timh, varos, kib);
             dbHandler.addItem(item);
             onomaProiontos.setText("");
             timhProiontos.setText("");
             varosProiontos.setText("");
             kibProiontos.setText("");
+
 
             mainLayout = (LinearLayout) findViewById(R.id.linearButtonAddProion);
             MessageBox("Το προιόν " + onoma + " προσθέθηκε με επιτυχία! \n Αν θέλετε μπορείτε να προσθέσετε καινούργιο προιόν");

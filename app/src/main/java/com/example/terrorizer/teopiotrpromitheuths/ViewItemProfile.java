@@ -35,7 +35,7 @@ public class ViewItemProfile extends AppCompatActivity {
         if(items != null){
             for ( int i=0; i<items.length; i++) {
                 addVal.setText(items[i].getItemVaros());
-                phoneVal.setText(items[i].getItemPrice());
+                phoneVal.setText(items[i].getItemPrice() + " €");
                 afmVal.setText(items[i].getItemKib());
             }
         }

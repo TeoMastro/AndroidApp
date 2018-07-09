@@ -272,7 +272,7 @@
                 android:layout_height="wrap_content"
                 android:background="#2D3142"
                 android:onClick="updateCustomer"
-                android:text="Επεξεργασια"
+                android:text="ΕΦΑΡΜΟΓΗ"
                 android:textColor="#FFFFFF"
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
