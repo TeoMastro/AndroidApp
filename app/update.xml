@@ -1,0 +1,7 @@
+<AppUpdater>
+  <update>
+    <latestVersion>1.1.0</latestVersion>
+    <latestVersionCode>2</latestVersionCode>
+    <url>https://github.com/PetrosM93/AndroidApp/releases</url>
+  </update>
+</AppUpdater>
