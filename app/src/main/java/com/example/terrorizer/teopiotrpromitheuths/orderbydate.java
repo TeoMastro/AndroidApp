@@ -21,11 +21,42 @@ public class orderbydate extends AppCompatActivity {
         ArrayList<String> my_array;
         my_array = getTableValues();
 
-        if(my_array.size() != 0) {
+        float totalmoney=0;
+        if (my_array.size() != 0) {
             for (int i = 0; i < my_array.size(); i++) {
-                result.append(my_array.get(i));
-                result.append("\n");
+                if (i == 0) {
+                    String firstname = my_array.get(i).substring(my_array.get(i).indexOf("(") + 1, my_array.get(i).indexOf(")"));
+                    totalmoney = Float.parseFloat(my_array.get(i).substring(my_array.get(i).indexOf("{") + 1, my_array.get(i).indexOf("}")));
+                    String orderline = my_array.get(i).substring(my_array.get(i).indexOf(">") + 1, my_array.get(i).indexOf("<"));
+                    result.append(firstname);
+                    result.append(System.getProperty("line.separator"));
+                    result.append("_____________________________");
+                    result.append(System.getProperty("line.separator"));
+                    result.append(orderline);
+                    result.append(System.getProperty("line.separator"));
+                } else {
+                    String prevname = my_array.get(i - 1).substring(my_array.get(i - 1).indexOf("(") + 1, my_array.get(i - 1).indexOf(")"));
+                    String pname = my_array.get(i).substring(my_array.get(i).indexOf("(") + 1, my_array.get(i).indexOf(")"));
+                    String orderline = my_array.get(i).substring(my_array.get(i).indexOf(">") + 1, my_array.get(i).indexOf("<"));
+                    if (prevname.matches(pname)) {
+                        totalmoney = totalmoney + Float.parseFloat(my_array.get(i).substring(my_array.get(i).indexOf("{") + 1, my_array.get(i).indexOf("}")));
+                        result.append(orderline);
+                        result.append(System.getProperty("line.separator"));
+                    } else {
+                        result.append("Συνολική τιμή: " + totalmoney + " €");
+                        totalmoney = 0;
+                        result.append(System.getProperty("line.separator"));
+                        result.append(System.getProperty("line.separator"));
+                        result.append(pname);
+                        result.append(System.getProperty("line.separator"));
+                        result.append("_____________________________");
+                        result.append(System.getProperty("line.separator"));
+                        result.append(orderline);
+                        result.append(System.getProperty("line.separator"));
+                    }
+                }
             }
+            result.append("Συνολική τιμή: " + totalmoney + " €");
         }
     }
 
@@ -46,8 +77,6 @@ public class orderbydate extends AppCompatActivity {
 
                 my_array.add(arrayList[i]);
             }
-        } else {
-            my_array.add("Δεν υπάρχουν παραγγελίες");
         }
         return my_array;
     }
