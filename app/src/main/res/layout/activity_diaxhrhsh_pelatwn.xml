@@ -116,7 +116,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:labelFor="@id/AddressPelatiEdit"
-                android:text="Διεύθηνση"
+                android:text="Διεύθυνση"
                 android:textSize="18sp" />
 
             <EditText

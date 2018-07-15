@@ -6,13 +6,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-
-import static android.content.ContentValues.TAG;
 
 public class MyDBHandler extends SQLiteOpenHelper {
     //information of database
@@ -292,26 +289,14 @@ public class MyDBHandler extends SQLiteOpenHelper {
                 String iName = cursor.getString(1);
                 int qty = Integer.parseInt(cursor.getString(2));
                 int actkib = Integer.parseInt(cursor.getString(3));
-                float price = Float.parseFloat(cursor.getString(4));
-                int kibqty = Integer.parseInt(cursor.getString(5));
-                double finalprice = 0;
-                if (actkib == 1) {
-                    finalprice = (price * kibqty) * qty;
-                } else {
-                    finalprice = price * qty;
-                }
-                String printfinalp = String.format("%.02f", finalprice);
-                Log.d(TAG, "TodayOrders: " + pdate + " " + printfinalp);
                 if(actkib==1) {
                     result += "(Όνομα πελάτη: " +  pName + ")" + System.getProperty("line.separator")
                             + ">Προϊόν: " + iName + System.getProperty("line.separator")
-                            + "Ποσότητα: " + String.valueOf(qty) + " Κιβ." + System.getProperty("line.separator")+ " <"
-                            + "{" + printfinalp + "}" + System.getProperty("line.separator") + " /";
+                            + "Ποσότητα: " + String.valueOf(qty) + " Κιβ." + System.getProperty("line.separator")+ " < /";
                 }else{
                     result += "(Όνομα πελάτη: " +  pName + ")" + System.getProperty("line.separator")
                             + ">Προϊόν: " + iName + System.getProperty("line.separator")
-                            + "Ποσότητα: " + String.valueOf(qty) + System.getProperty("line.separator") + " <"
-                            + "{" + printfinalp + "}" + System.getProperty("line.separator") + " /";
+                            + "Ποσότητα: " + String.valueOf(qty) + System.getProperty("line.separator") + " < /";
                 }
             }
         }
@@ -386,30 +371,17 @@ public class MyDBHandler extends SQLiteOpenHelper {
                 String iName = cursor.getString(1);
                 int qty = Integer.parseInt(cursor.getString(2));
                 int actkib = Integer.parseInt(cursor.getString(3));
-                float price = Float.parseFloat(cursor.getString(4));
-                int kibqty = Integer.parseInt(cursor.getString(5));
 
-                double finalprice = 0;
-                if(actkib==1){
-                    finalprice = (price * kibqty) * qty;
-                }else{
-                    finalprice = price * qty;
-                }
-                String printfinalp = String.format("%.02f", finalprice);
-                Log.d(TAG, "TodayOrders: " + formattedDate + " " + printfinalp);
                 if(actkib==1) {
                     result += "(Όνομα πελάτη: " +  pName + ")" + System.getProperty("line.separator")
                             + ">Προϊόν: " + iName + System.getProperty("line.separator")
-                            + "Ποσότητα: " + String.valueOf(qty) + " Κιβ." + System.getProperty("line.separator")+ " <"
-                            + "{" + printfinalp + "}" + System.getProperty("line.separator") + " /";
+                            + "Ποσότητα: " + String.valueOf(qty) + " Κιβ." + System.getProperty("line.separator")+ " < /";
                 }else{
                     result += "(Όνομα πελάτη: " +  pName + ")" + System.getProperty("line.separator")
                             + ">Προϊόν: " + iName + System.getProperty("line.separator")
-                            + "Ποσότητα: " + String.valueOf(qty) + System.getProperty("line.separator") + " <"
-                            + "{" + printfinalp + "}" + System.getProperty("line.separator") + " /";
+                            + "Ποσότητα: " + String.valueOf(qty) + System.getProperty("line.separator") + " < /";
                 }
             }
-
             cursor.close();
             db.close();
             return result;

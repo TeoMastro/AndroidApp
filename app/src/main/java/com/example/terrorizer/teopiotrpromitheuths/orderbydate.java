@@ -21,12 +21,10 @@ public class orderbydate extends AppCompatActivity {
         ArrayList<String> my_array;
         my_array = getTableValues();
 
-        float totalmoney=0;
         if (my_array.size() != 0) {
             for (int i = 0; i < my_array.size(); i++) {
                 if (i == 0) {
                     String firstname = my_array.get(i).substring(my_array.get(i).indexOf("(") + 1, my_array.get(i).indexOf(")"));
-                    totalmoney = Float.parseFloat(my_array.get(i).substring(my_array.get(i).indexOf("{") + 1, my_array.get(i).indexOf("}")));
                     String orderline = my_array.get(i).substring(my_array.get(i).indexOf(">") + 1, my_array.get(i).indexOf("<"));
                     result.append(firstname);
                     result.append(System.getProperty("line.separator"));
@@ -39,13 +37,9 @@ public class orderbydate extends AppCompatActivity {
                     String pname = my_array.get(i).substring(my_array.get(i).indexOf("(") + 1, my_array.get(i).indexOf(")"));
                     String orderline = my_array.get(i).substring(my_array.get(i).indexOf(">") + 1, my_array.get(i).indexOf("<"));
                     if (prevname.matches(pname)) {
-                        totalmoney = totalmoney + Float.parseFloat(my_array.get(i).substring(my_array.get(i).indexOf("{") + 1, my_array.get(i).indexOf("}")));
                         result.append(orderline);
                         result.append(System.getProperty("line.separator"));
                     } else {
-                        result.append("Συνολική τιμή: " + totalmoney + " €");
-                        totalmoney = 0;
-                        result.append(System.getProperty("line.separator"));
                         result.append(System.getProperty("line.separator"));
                         result.append(pname);
                         result.append(System.getProperty("line.separator"));
@@ -56,7 +50,6 @@ public class orderbydate extends AppCompatActivity {
                     }
                 }
             }
-            result.append("Συνολική τιμή: " + totalmoney + " €");
         }
     }
 
